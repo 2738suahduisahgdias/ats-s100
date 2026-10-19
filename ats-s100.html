@@ -28,7 +28,7 @@ svg{max-width:100%;height:auto}
 .navitem.active{background:#14203a;border-color:#28406b;color:#fff}
 .navitem .idx{font-size:11px;color:#4ea1ff;width:18px;font-family:ui-monospace,monospace}
 .sidefoot{padding:10px 14px;border-top:1px solid #1d2a42;font-size:10.5px;color:#5d6b85;line-height:1.6}
-#main{flex:1;margin-left:236px;padding:0 22px 40px}
+#main{flex:1;margin-left:236px;padding:0 22px 40px;min-width:0}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 2px 12px;border-bottom:1px solid #1d2a42;position:sticky;top:0;background:#0a0f1c;z-index:5}
 .topbar h2{font-size:18px}
 .topbar .ts{font-size:12px;color:#7c8aa5}
@@ -38,11 +38,12 @@ svg{max-width:100%;height:auto}
 .subtab:hover{border-color:#2b3f66}
 .subtab.active{background:#14203a;border-color:#3a5a94;color:#fff}
 .grid{display:grid;gap:12px}
+.grid>*{min-width:0}
 .g4{grid-template-columns:repeat(4,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
-.card{background:#101827;border:1px solid #1d2a42;border-radius:10px;padding:16px}
-.card h3{font-size:13.5px;color:#c7d3ea;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.card{background:#101827;border:1px solid #1d2a42;border-radius:10px;padding:16px;min-width:0}
+.card h3{font-size:13.5px;color:#c7d3ea;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;font-weight:600;flex-wrap:wrap;gap:6px}
 .card h3 .tag{font-size:10.5px;color:#7c8aa5;font-weight:400}
 .kpi .label{font-size:12px;color:#7c8aa5}
 .kpi .value{font-size:22px;font-weight:700;margin-top:6px}
@@ -67,7 +68,7 @@ tbody tr:hover{background:#121c31}
 .searchbox input{background:#0d1522;border:1px solid #1d2a42;color:#d7e0f0;border-radius:7px;padding:7px 12px;font-size:13px;width:240px;outline:none}
 .searchbox input:focus{border-color:#3a5a94}
 .pipeline{display:flex;align-items:stretch;gap:0;margin:8px 0}
-.pstage{flex:1;background:#0e1626;border:1px solid #1d2a42;border-radius:9px;padding:12px;position:relative;text-align:center}
+.pstage{flex:1;background:#0e1626;border:1px solid #1d2a42;border-radius:9px;padding:12px;position:relative;text-align:center;min-width:0}
 .pstage+.pstage{margin-left:34px}
 .pstage+.pstage::before{content:"▶";position:absolute;left:-27px;top:50%;transform:translateY(-50%);color:#3a5a94;font-size:13px}
 .pstage .st{font-size:13px;font-weight:600;margin-bottom:6px}
@@ -78,7 +79,7 @@ tbody tr:hover{background:#121c31}
 .pstage.cur .st{color:#4ea1ff}
 .pstage.wait{opacity:.55}
 .attr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.attr-item{background:#0d1522;border:1px solid #1d2a42;border-radius:7px;padding:8px 10px}
+.attr-item{background:#0d1522;border:1px solid #1d2a42;border-radius:7px;padding:8px 10px;min-width:0}
 .attr-item .k{font-size:10.5px;color:#7c8aa5}
 .attr-item .v{font-size:12px;margin-top:3px;color:#c7d3ea}
 .dimbar-row{display:flex;align-items:center;gap:12px;margin:10px 0}
@@ -91,7 +92,7 @@ tbody tr:hover{background:#121c31}
 .legend{display:flex;flex-direction:column;gap:6px;font-size:12px}
 .legend .li{display:flex;align-items:center;gap:8px}
 .legend .dot{width:10px;height:10px;border-radius:3px}
-.tabs-mini{display:flex;gap:4px;margin-bottom:12px}
+.tabs-mini{display:flex;gap:4px;margin-bottom:12px;overflow-x:auto;max-width:100%}
 .tabs-mini .t{padding:5px 14px;font-size:12.5px;border-radius:6px;cursor:pointer;color:#8fa0bd;border:1px solid transparent}
 .tabs-mini .t.active{background:#14203a;border-color:#2b3f66;color:#fff}
 .detail-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
@@ -116,6 +117,32 @@ tbody tr:hover{background:#121c31}
 ::-webkit-scrollbar{width:9px;height:9px}
 ::-webkit-scrollbar-thumb{background:#1e2c48;border-radius:5px}
 ::-webkit-scrollbar-track{background:transparent}
+#agentFab{position:fixed;right:22px;bottom:22px;width:54px;height:54px;border-radius:50%;background:#14203a;border:1px solid #3a5a94;color:#7db9ff;font-size:15px;font-weight:700;cursor:pointer;z-index:60;box-shadow:0 4px 18px rgba(0,0,0,.5);font-family:inherit}
+#agentFab:hover{background:#1a2b4d}
+#agentPanel{position:fixed;right:22px;bottom:88px;width:380px;height:500px;max-height:calc(100vh - 112px);background:#0c1322;border:1px solid #263455;border-radius:14px;z-index:61;display:none;flex-direction:column;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+#agentPanel.open{display:flex}
+.ag-head{padding:10px 12px;border-bottom:1px solid #1d2a42;display:flex;align-items:center;gap:8px;flex:none}
+.ag-title{font-size:13.5px;font-weight:600;flex:1;min-width:0}
+.ag-modes{display:flex;gap:4px}
+.ag-mode{padding:4px 10px;font-size:11.5px;border-radius:6px;border:1px solid #1d2a42;color:#8fa0bd;cursor:pointer;background:#0e1626;font-family:inherit}
+.ag-mode.active{background:#14203a;border-color:#3a5a94;color:#fff}
+.ag-iconbtn{background:none;border:1px solid #1d2a42;color:#8fa0bd;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:12px;font-family:inherit;flex:none}
+#agentSettings{display:none;padding:10px 12px;border-bottom:1px solid #1d2a42;gap:8px;flex-direction:column;flex:none}
+#agentSettings.open{display:flex}
+#agentSettings label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:#7c8aa5}
+#agentSettings input{background:#0d1522;border:1px solid #1d2a42;border-radius:7px;color:#d7e0f0;padding:6px 9px;font-size:12px;outline:none;font-family:inherit}
+#agentMsgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px}
+.ag-msg{max-width:88%;padding:8px 12px;border-radius:10px;font-size:12.5px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.ag-msg.user{align-self:flex-end;background:#1a3a6b;color:#dbe7ff;border-bottom-right-radius:3px}
+.ag-msg.bot{align-self:flex-start;background:#131c30;border:1px solid #1d2a42;border-bottom-left-radius:3px}
+.ag-msg .ag-time{display:block;font-size:10px;color:#5d6b85;margin-top:4px}
+.ag-inputrow{display:flex;gap:8px;padding:10px;border-top:1px solid #1d2a42;flex:none}
+#agentInput{flex:1;background:#0d1522;border:1px solid #1d2a42;border-radius:8px;color:#d7e0f0;padding:8px 10px;font-size:13px;outline:none;font-family:inherit;min-width:0}
+.ag-foot{padding:6px 12px;font-size:10px;color:#5d6b85;border-top:1px solid #1d2a42;line-height:1.5;flex:none}
+@media (max-width:767px){
+  #agentFab{bottom:calc(72px + env(safe-area-inset-bottom));right:14px;width:48px;height:48px}
+  #agentPanel{left:0;right:0;top:0;bottom:0;width:auto;height:auto;max-height:none;border-radius:0;z-index:80}
+}
 #bottomnav{display:none}
 .progress{height:16px;background:#0d1522;border-radius:8px;overflow:hidden;border:1px solid #1d2a42}
 .progress .fill{height:100%;background:linear-gradient(90deg,#4ea1ff,#7db9ff);border-radius:8px;transition:width .4s}
@@ -135,6 +162,7 @@ tbody tr:hover{background:#121c31}
 .eq-legend .li{display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
 .eq-legend .li.off{opacity:.4}
 .goal-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.goal-toggle{display:flex;gap:6px;min-width:0}
 @media (max-width:1023px){
   #sidebar{width:64px}
   .brand h1{font-size:12px;padding:0 4px}
@@ -222,8 +250,61 @@ goal: {
 },
 equityHistory: {
   sim: [{d:"2026-10-16", v:150000}],
-  real: [{d:"2026-10-16", v:147530.17},{d:"2026-10-19", v:148268.74}],
+  real: [{d:"2026-10-12", v:150000},{d:"2026-10-16", v:147530.17},{d:"2026-10-19", v:148268.74}],
   note: "净值序列结构：每日收盘对账（15:35 任务）后向各数组 push {d:\"YYYY-MM-DD\", v:净值} 新数据点，图表自动延伸。"
+},
+notes: [],
+stockBrief: {
+  "159611": {industry:"电力", rsRank:"行业第2/8", stage:"温斯坦第二阶段", style:"趋势持有优先", seed:11,
+    summary:"电力板块RS排名前二，红利属性突出；ETF 分散个股风险，作为组合底仓持有。盈利预测修正上调 +2.1%，估值百分位 42% 处中性区间。",
+    cats:["用电量旺季来临，火电盈利修复","市场利率下行利好高股息资产","绿电装机加速，运营商现金流改善"],
+    risks:["煤价反弹压缩火电利润","来水偏枯影响水电出力","红利板块拥挤度上升"],
+    hist:[{date:"2026-10-19", act:"持有 34,300 份", type:"真实持仓", note:"成本 ¥1.050，现价 ¥1.159，浮盈约 +10.4%"}]},
+  "515220": {industry:"煤炭", rsRank:"行业第1/8", stage:"温斯坦第二阶段", style:"中期波段", seed:23,
+    summary:"煤炭 RS 排名第一，秦皇岛煤价创两年新高驱动盈利预测上修 +6.2%；估值百分位 18% 仍处低位。10-19 已部分兑现，保留底仓做波段。",
+    cats:["秦皇岛动力煤价 ¥1,013/吨，创两年新高","冬季供暖季需求旺季","高股息 + 低估值共振"],
+    risks:["煤价回落快于预期","政策保供压价","需求端地产链疲弱"],
+    hist:[{date:"2026-10-19", act:"卖出 10,000 份 @1.279", type:"真实成交", note:"煤价新高后兑现部分盈利，保留 26,000 份底仓"},{date:"2026-10-15", act:"煤炭行业 RS 排名升至第 1", type:"AI决策", note:"纳入行业轮动领涨象限"}]},
+  "601088": {industry:"煤炭", rsRank:"行业第1/8", stage:"温斯坦第二阶段", style:"趋势持有", seed:31,
+    summary:"煤电运化一体化龙头，长协占比高、业绩确定性强；受益煤价上行与高分红。与煤炭ETF 存在因子重叠，注意敞口集中度。",
+    cats:["煤价中枢上移","特别分红 / 高股息政策","煤电一体化平滑周期波动"],
+    risks:["煤价下行周期开启","电价市场化让利","与煤炭ETF 重复暴露"],
+    hist:[{date:"2026-10-19", act:"持有 300 股", type:"真实持仓", note:"随煤炭板块 RS 第一持有"}]},
+  "300364": {industry:"传媒", rsRank:"行业第8/8", stage:"温斯坦第四阶段", style:"短线高抛低吸", seed:47,
+    summary:"短剧/AI 语料题材波动大，传媒板块 RS 垫底（8/8）；10-19 已兑现 200 股降低敞口，剩余 300 股按短线纪律处理。",
+    cats:["短剧出海流水超预期","AI 语料授权落地"],
+    risks:["板块 RS 排名垫底（8/8）","题材退潮成交萎缩","商誉减值风险"],
+    hist:[{date:"2026-10-19", act:"卖出 200 股 @23.740", type:"真实成交", note:"短线兑现、仓位再平衡，剩余 300 股"},{date:"2026-10-14", act:"短线试仓", type:"真实成交", note:"题材驱动，快进快出"}]},
+  "600900": {industry:"电力", rsRank:"行业第2/8", stage:"温斯坦第二阶段", style:"趋势持有", seed:53,
+    summary:"水电龙头，现金流稳定、防御属性强；与电力ETF 互补的宽基底仓。估值百分位 42% 中性，盈利预测小幅上调。",
+    cats:["来水改善，发电量回升","新机组投产增厚业绩","高股息防御配置价值"],
+    risks:["来水偏枯","电价下调","利率上行压制估值"],
+    hist:[{date:"2026-10-19", act:"持有 200 股", type:"真实持仓", note:"防御底仓，长期持有"}]},
+  "601225": {industry:"煤炭", rsRank:"行业第1/8", stage:"温斯坦第二阶段", style:"中期波段", seed:61,
+    summary:"煤炭高股息代表，成本优势显著；煤价两年新高背景下盈利弹性大。100 股小仓位观察仓，与煤炭ETF/神华合计注意敞口。",
+    cats:["煤价上行带来盈利弹性","高分红回报"],
+    risks:["煤价见顶回落","区域产能政策","板块交易拥挤"],
+    hist:[{date:"2026-10-19", act:"持有 100 股", type:"真实持仓", note:"小仓位观察仓"}]},
+  "605117": {industry:"新能源", rsRank:"行业第7/8", stage:"第一阶段→二", style:"突破跟随", seed:71,
+    summary:"逆变器/储能出海高增，放量突破平台后建立 100 股试仓；板块整体仍处筑底转强早期，属于左侧转右侧信号，严格止损。",
+    cats:["储能出海订单高增","逆变器盈利拐点确认","板块 RS 由第四阶段转强"],
+    risks:["板块 RS 仍排名第 7","海外关税政策变化","突破假信号的止损损耗"],
+    hist:[{date:"2026-10-19", act:"买入 100 股 @71.340", type:"真实成交", note:"突破跟随试仓，成本 ¥71.340"},{date:"2026-10-19", act:"扫描候选：入选", type:"AI决策", note:"放量突破 + 板块转强，短线触发式候选"}]},
+  "300502": {industry:"通信设备", rsRank:"行业第4/8", stage:"第一阶段→二", style:"突破跟随", seed:83,
+    summary:"光模块/CPO 高景气，AI 算力核心受益；回踩 20 日线缩量，列入短线观察池，等待触发式买点。",
+    cats:["AI 算力资本开支上修","800G/1.6T 光模块放量"],
+    risks:["估值百分位偏高","海外大客户资本开支波动"],
+    hist:[{date:"2026-10-19", act:"纳入机会股票池（短线）", type:"AI决策", note:"回踩 20 日线缩量观察"}]},
+  "601138": {industry:"通信设备", rsRank:"行业第4/8", stage:"第二阶段", style:"趋势持有", seed:89,
+    summary:"AI 服务器组装龙头，盈利预测修正 +4.1%，机构覆盖密集；中期候选，等待估值与预期差校验。",
+    cats:["AI 服务器订单饱满","云计算资本开支上行"],
+    risks:["毛利率偏低","大客户议价能力强"],
+    hist:[{date:"2026-10-19", act:"纳入机会股票池（中期）", type:"AI决策", note:"盈利预测修正 +4.1%"}]},
+  "600183": {industry:"通信设备", rsRank:"行业第4/8", stage:"第四阶段", style:"趋势持有", seed:97,
+    summary:"覆铜板龙头，估值百分位低位；等待盈利拐点确认信号，长线观察池。",
+    cats:["上游铜价回落利好加工价差","AI 服务器板材升级"],
+    risks:["盈利拐点未确认","需求复苏不及预期"],
+    hist:[{date:"2026-10-19", act:"纳入机会股票池（长线）", type:"AI决策", note:"估值低位，待盈利拐点"}]}
 },
 holdings: [
   {name:"电力ETF", code:"159611", qty:34300, unit:"份", price:1.159, cost:1.050, acct:"real"},
@@ -246,7 +327,7 @@ fills1019: [
   {time:"10-19 13:42", op:"买入", name:"德业股份", code:"605117", qty:100, price:71.340, note:"突破跟随试仓"}
 ],
 sim: {
-  initial: 150000, cash: 150000, positions: 0, trades: 0,
+  initial: 150000, cash: 150000, positions: 0, trades: 0, pos: {}, tradeLog: [],
   rules: ["永不镜像用户操作，独立决策独立承担","不做事后追认成交，所有成交按当时可验证价格撮合","仅使用可验证的真实历史行情价格","100股整手交易（ETF按100份），遵守T+1","严格遵守涨跌停价格限制","手续费与滑点全额计入成本"]
 },
 pk: {
@@ -379,8 +460,11 @@ ledger: {simTrades:0, simState:"空台账（AI模拟仓自 ¥150,000 现金开�
 version: {ver:"V1.2", build:"2026.10.19-release", note:"策略规则版本化：每次规则变更生成规则版本号与变更日志，回测与实盘严格按当时规则版本重放，禁止事后修改规则解释历史成交。"}
 };
 const fmt = n => "¥" + Number(n).toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2});
-const esc = s => String(s);
-function chg(v){ if(v>0) return '<span class="up">+'+v.toFixed(2)+'%</span>'; if(v<0) return '<span class="down">'+v.toFixed(2)+'%</span>'; return '<span class="flat">0.00%</span>'; }
+const escHtml = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function todayStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function weekCN(ds){ return ["周日","周一","周二","周三","周四","周五","周六"][new Date(ds+"T00:00:00").getDay()]; }
+function findHolding(key){ if(!key) return null; key=String(key).trim(); return DATA.holdings.find(h=>h.code===key) || DATA.holdings.find(h=>h.name===key) || (key.length>=2 ? DATA.holdings.find(h=>h.name.indexOf(key)>=0) : null) || null; }
+function chg(v){ v=Number(v); if(!isFinite(v)) return '<span class="flat">—</span>'; if(v>0) return '<span class="up">+'+v.toFixed(2)+'%</span>'; if(v<0) return '<span class="down">'+v.toFixed(2)+'%</span>'; return '<span class="flat">0.00%</span>'; }
 function badge(txt, cls){ return '<span class="badge '+cls+'">'+txt+'</span>'; }
 function tableWrap(inner){ return '<div class="card"><div style="overflow-x:auto">'+inner+'</div></div>'; }
 
@@ -398,36 +482,46 @@ R.subtabs = function(list){
 R.profitPanel = function(){
   const g = DATA.goal;
   const isSim = state.profitAcct==="sim";
-  const basis = isSim ? g.initial : 147530.17;
-  const cur = isSim ? DATA.sim.cash : DATA.realAcct.total;
-  const profit = cur - basis;
+  const basis = g.initial;
+  let simMv = 0;
+  const pos = DATA.sim.pos || {};
+  Object.keys(pos).forEach(k=>{ if(pos[k]>0){ const hh=DATA.holdings.filter(x=>x.code===k)[0]; if(hh){ const q=DataFeed.quotes[k]; simMv += pos[k]*(q?q.price:hh.price); } } });
+  const cur = isSim ? DATA.sim.cash + simMv : DATA.realAcct.total;
+  const profit = Math.round((cur - basis)*100)/100;
   const rate = profit/basis*100;
-  const target = Math.round(basis*1.3*100)/100;
-  const gap = target - cur;
-  const pct = Math.max(0, Math.min(100, profit/(target-basis)*100));
+  const target = g.target;
+  const gap = Math.round((target - cur)*100)/100;
+  const rawPct = profit/(target-basis)*100;
+  const fillPct = Math.max(0, Math.min(100, rawPct));
+  const daily = gap/basis/g.daysLeft*100;
   const toggle = '<div class="goal-toggle"><div class="tabs-mini" style="margin:0">'
     +'<div class="t'+(isSim?' active':'')+'" data-pacct="sim">AI模拟仓基准 ¥150,000</div>'
-    +'<div class="t'+(isSim?'':' active')+'" data-pacct="real">真实仓基准 ¥148,268.74</div></div></div>';
+    +'<div class="t'+(isSim?'':' active')+'" data-pacct="real">真实仓基准 ¥150,000（当前 ¥148,268.74）</div></div></div>';
   const profitCls = profit>0?"up":(profit<0?"down":"flat");
-  const profitSign = profit>0?"+":"";
-  const dailyTxt = isSim ? ("+"+g.daily.toFixed(3)+"%/天（估算）") : ("+"+(gap/basis/g.daysLeft*100).toFixed(3)+"%/天（估算）");
+  const profitTxt = profit<0 ? ("-"+fmt(-profit)) : (profit>0 ? "+"+fmt(profit) : fmt(0));
+  const pctCls = rawPct>0?"up":(rawPct<0?"down":"dim");
+  const statusTxt = isSim
+    ? "模拟仓当前 0 盈亏（全现金 ¥150,000，尚未开仓）"
+    : "真实仓当前累计亏损 "+fmt(-profit)+"（"+rate.toFixed(2)+"%），距离目标还差 "+fmt(gap);
+  const notesHtml = (DATA.notes && DATA.notes.length) ? DATA.notes.map((n,i)=>'<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-top:12px;padding:8px 12px;background:rgba(240,179,84,.07);border:1px solid #4a3b1e;border-radius:8px;font-size:12px;color:#d8b476"><span style="white-space:pre-wrap;word-break:break-word">备注：'+escHtml(n.content)+'</span><span class="backlink" data-clrnote="'+i+'" style="flex:none;font-size:11px">清除</span></div>').join("") : "";
   return '<div class="card" style="margin-top:16px;border-color:#2b3f66">'
     +'<div class="goal-head"><h3 style="margin:0">盈利情况 · 冲刺 +30% <span class="tag">'+g.targetNote+'</span></h3>'+toggle+'</div>'
+    +notesHtml
     +'<div class="grid g4" style="margin-top:14px">'
-    +'<div class="kpi"><div class="label">当前总资产（'+(isSim?"AI模拟仓":"真实仓")+'）</div><div class="value num" style="color:#4ea1ff">'+fmt(cur)+'</div><div class="sub">基准 '+fmt(basis)+'（'+(isSim?"2026-10-16 建账":"2026-10-16 净值")+'）</div></div>'
-    +'<div class="kpi"><div class="label">累计盈亏</div><div class="value num '+profitCls+'">'+(profitSign+fmt(profit))+'</div><div class="sub">收益率 <span class="num '+profitCls+'">'+profitSign+rate.toFixed(2)+'%</span></div></div>'
+    +'<div class="kpi"><div class="label">当前总资产（'+(isSim?"AI模拟仓":"真实仓")+'）</div><div class="value num" style="color:#4ea1ff">'+fmt(cur)+'</div><div class="sub">初始资金 '+fmt(basis)+'（'+(isSim?"2026-10-16 建账":"2026-10 注资")+'）</div></div>'
+    +'<div class="kpi"><div class="label">累计盈亏</div><div class="value num '+profitCls+'">'+profitTxt+'</div><div class="sub">收益率 <span class="num '+profitCls+'">'+rate.toFixed(2)+'%</span>'+(profit<0?' · <span style="font-size:10px">亏损按 A 股惯例绿色显示</span>':'')+'</div></div>'
     +'<div class="kpi"><div class="label">剩余交易日（估算）</div><div class="value num" style="color:#f0b354">约 '+g.daysLeft+' 天</div><div class="sub">目标日 '+g.targetDate+'</div></div>'
-    +'<div class="kpi"><div class="label">所需日均收益率</div><div class="value num" style="color:#f0b354">'+dailyTxt+'</div><div class="sub">缺口 '+fmt(gap)+'</div></div>'
+    +'<div class="kpi"><div class="label">所需日均收益率</div><div class="value num" style="color:#f0b354">+'+daily.toFixed(3)+'%/天</div><div class="sub">缺口 '+fmt(gap)+' · 估算，未计复利与费用</div></div>'
     +'</div>'
-    +'<div style="margin-top:16px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span>目标进度：<b class="num">'+fmt(Math.max(0,profit))+'</b> / 目标盈利 <b class="num">'+fmt(target-basis)+'</b>（目标总资产 '+fmt(target)+'）</span><span class="num dim">'+pct.toFixed(1)+'%</span></div>'
-    +'<div class="progress"><div class="fill" style="width:'+pct+'%"></div></div>'
-    +'<div class="progress-label"><span>当前 0 起步，两仓均尚未盈利</span><span>'+g.daysNote+'</span><span>'+g.dailyNote+'</span></div></div>'
+    +'<div style="margin-top:16px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;gap:8px;flex-wrap:wrap"><span>目标进度：<b class="num">'+profitTxt+'</b> / 目标盈利 <b class="num">'+fmt(target-basis)+'</b>（目标总资产 '+fmt(target)+'）</span><span class="num '+pctCls+'">'+rawPct.toFixed(1)+'%</span></div>'
+    +'<div class="progress"><div class="fill" style="width:'+fillPct+'%"></div></div>'
+    +'<div class="progress-label"><span>'+statusTxt+'</span><span>'+g.daysNote+'</span><span>'+g.dailyNote+'</span></div></div>'
     +'</div>';
 };
 
 R.equityTrend = function(){
   const legend = '<div class="eq-legend">'
-    +'<div class="li'+(state.eqShow.real?'':' off')+'" data-eq="real"><span style="width:14px;height:3px;background:#f04a55;display:inline-block;border-radius:2px"></span>真实仓（¥147,530.17 @10-16 起）</div>'
+    +'<div class="li'+(state.eqShow.real?'':' off')+'" data-eq="real"><span style="width:14px;height:3px;background:#f04a55;display:inline-block;border-radius:2px"></span>真实仓（初始 ¥150,000 · 现 ¥148,268.74）</div>'
     +'<div class="li'+(state.eqShow.sim?'':' off')+'" data-eq="sim"><span style="width:14px;height:3px;background:#4ea1ff;display:inline-block;border-radius:2px"></span>AI模拟仓（¥150,000 起）</div></div>';
   return '<div class="card" style="margin-top:12px"><h3>净值趋势图 <span class="watermark">数据点待积累 · 结构预留</span></h3>'
     +legend+R.equityChartSvg()
@@ -486,7 +580,7 @@ R.ovReal = function(){
   }).join("");
   let fills = DATA.fills1019.map(f=>'<tr><td class="num dim">'+f.time+'</td><td>'+(f.op==="买入"?badge("买入","red"):badge("卖出","green"))+'</td><td>'+f.name+' <span class="dim mono">'+f.code+'</span></td><td class="num">'+f.qty.toLocaleString()+'</td><td class="num">'+f.price.toFixed(3)+'</td><td class="dim">'+f.note+'</td></tr>').join("");
   return '<div class="grid g4">'
-    +'<div class="card kpi"><div class="label">总资产</div><div class="value num">'+fmt(a.total)+'</div><div class="sub">数据时间 '+a.asOf+'</div></div>'
+    +'<div class="card kpi"><div class="label">总资产</div><div class="value num">'+fmt(a.total)+'</div><div class="sub">数据时间 '+a.asOf+' · 初始 ¥150,000 · 累计盈亏 <span class="num down">-¥1,731.26（-1.15%）</span></div></div>'
     +'<div class="card kpi"><div class="label">证券市值</div><div class="value num">'+fmt(a.securities)+'</div><div class="sub">持仓 8 只</div></div>'
     +'<div class="card kpi"><div class="label">可用资金</div><div class="value num" style="color:#4ea1ff">'+fmt(a.available)+'</div><div class="sub">含当日卖出回款</div></div>'
     +'<div class="card kpi"><div class="label">可取资金</div><div class="value num" style="color:#4ea1ff">'+fmt(a.withdrawable)+'</div><div class="sub">T+1 后可取</div></div>'
@@ -499,17 +593,21 @@ R.ovReal = function(){
 };
 
 R.ovSim = function(){
-  const s = DATA.sim;
+  const s = DATA.sim; s.pos = s.pos || {}; s.tradeLog = s.tradeLog || [];
+  const posKeys = Object.keys(s.pos).filter(k=>s.pos[k]>0);
+  let mv = 0;
+  posKeys.forEach(k=>{ const h=DATA.holdings.filter(x=>x.code===k)[0]; if(h){ const q=DataFeed.quotes[k]; mv += s.pos[k]*(q?q.price:h.price); } });
+  const total = s.cash + mv;
   const rules = s.rules.map(r=>'<li style="margin:6px 0 6px 18px;line-height:1.7">'+r+'</li>').join("");
   return '<div class="grid g4">'
     +'<div class="card kpi"><div class="label">初始资金</div><div class="value num">'+fmt(s.initial)+'</div><div class="sub">2026-10-16 建账</div></div>'
-    +'<div class="card kpi"><div class="label">当前总资产</div><div class="value num" style="color:#4ea1ff">'+fmt(s.cash)+'</div><div class="sub">全部为现金</div></div>'
-    +'<div class="card kpi"><div class="label">持仓数量</div><div class="value num">0</div><div class="sub">空仓观察中</div></div>'
-    +'<div class="card kpi"><div class="label">累计成交</div><div class="value num">0 笔</div><div class="sub">隔夜风险规则曾触发买入冻结（10-19）</div></div>'
+    +'<div class="card kpi"><div class="label">当前总资产</div><div class="value num" style="color:#4ea1ff">'+fmt(total)+'</div><div class="sub">现金 '+fmt(s.cash)+(posKeys.length?' + 持仓 '+fmt(mv):'，全部为现金')+'</div></div>'
+    +'<div class="card kpi"><div class="label">持仓数量</div><div class="value num">'+posKeys.length+' 只</div><div class="sub">'+(posKeys.length?posKeys.map(k=>{const h=DATA.holdings.filter(x=>x.code===k)[0];return h?h.name+" "+s.pos[k]+"股":k;}).join(" / "):"空仓观察中")+'</div></div>'
+    +'<div class="card kpi"><div class="label">累计成交</div><div class="value num">'+s.trades+' 笔</div><div class="sub">隔夜风险规则曾触发买入冻结（10-19）</div></div>'
     +'</div>'
     +'<div class="section-title">模拟交易规则（与真实账户完全隔离）</div>'
     +'<div class="card"><ul style="list-style:none">'+rules+'</ul></div>'
-    +'<div class="note" style="margin-top:14px">AI模拟仓当前 0 仓位、0 成交，资产全部为现金 ¥150,000.00。所有未来成交将全部记录在「交易计划 → 模拟成交台账」中，逐笔可复盘、可归因。</div>';
+    +'<div class="note" style="margin-top:14px">AI模拟仓'+(posKeys.length?'当前持有 '+posKeys.length+' 只标的，':'当前 0 仓位、')+'累计 '+s.trades+' 笔成交。所有成交已全部记录在「交易计划 → 模拟成交台账」中，逐笔可复盘、可归因。</div>';
 };
 
 R.ovPk = function(){
@@ -629,11 +727,85 @@ R.research = function(){
   const rows = list.map(h=>{
     const q = DataFeed.quotes[h.code];
     const px = q ? q.price : h.price;
-    const cg = q ? q.chg : (staticChg[h.code]||0);
+    const cg = q ? q.chg : (typeof h.chg==="number" ? h.chg : (staticChg[h.code]||0));
     return '<tr class="clickrow" data-code="'+h.code+'" style="cursor:pointer"><td><b>'+h.name+'</b></td><td class="mono dim">'+h.code+'</td><td>'+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+'</td><td class="num">'+(h.qty?h.qty.toLocaleString()+" "+h.unit:"—")+'</td><td class="num">'+px.toFixed(px<10?3:2)+'</td><td class="num">'+chg(cg)+'</td></tr>';
   }).join("");
   return '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div class="dim" style="font-size:12.5px">覆盖标的 '+list.length+' 只 · 数据截至 2026-10-19 15:00 收盘 · 点击行进入统一个股视图</div><div class="searchbox"><input id="searchInput" placeholder="搜索名称 / 代码" value="'+state.search+'"></div></div>'
     +'<div class="card">'+tb+'<div style="overflow-x:auto"><table><thead><tr><th>名称</th><th>代码</th><th>所属账户</th><th>持仓</th><th>现价</th><th>涨跌幅</th></tr></thead><tbody>'+(rows||'<tr><td colspan="6" class="dim" style="text-align:center;padding:24px">无匹配标的</td></tr>')+'</tbody></table></div></div>';
+};
+
+R.klineGeneric = function(seed, endPrice){
+  let s0 = seed*7919+13; const rnd = ()=>{ s0=(s0*1103515245+12345)%2147483648; return s0/2147483648; };
+  const n=30, W=640, H=210, pad=10;
+  const vol = endPrice*0.028;
+  let p = endPrice*(0.9+rnd()*0.05); const cs=[];
+  for(let i=0;i<n;i++){ const o=p; const c=o+(rnd()-0.48)*vol*2; const h=Math.max(o,c)+rnd()*vol; const l=Math.min(o,c)-rnd()*vol; cs.push({o:o,h:h,l:l,c:c}); p=c; }
+  cs[n-1].c=endPrice; cs[n-1].h=Math.max(cs[n-1].h,endPrice*1.002); cs[n-1].l=Math.min(cs[n-1].l,endPrice*0.998);
+  const all=cs.flatMap(k=>[k.h,k.l]); const mn=Math.min.apply(null,all), mx=Math.max.apply(null,all);
+  const cw=(W-pad*2)/n, bw=cw*0.55;
+  const y=v=>pad+(H-pad*2)*(1-(v-mn)/(mx-mn));
+  let g="";
+  cs.forEach((k,i)=>{
+    const x=pad+cw*i+cw/2, up=k.c>=k.o, col=up?"#f04a55":"#2fbf71";
+    g+='<line x1="'+x+'" y1="'+y(k.h)+'" x2="'+x+'" y2="'+y(k.l)+'" stroke="'+col+'" stroke-width="1"/>';
+    const top=y(Math.max(k.o,k.c)), hh=Math.max(2,Math.abs(y(k.o)-y(k.c)));
+    g+='<rect x="'+(x-bw/2)+'" y="'+top+'" width="'+bw+'" height="'+hh+'" fill="'+col+'" rx="1"/>';
+  });
+  const lvl=(v,col,txt)=>{const yy=y(v);return '<line x1="'+pad+'" y1="'+yy+'" x2="'+(W-pad)+'" y2="'+yy+'" stroke="'+col+'" stroke-width="1" stroke-dasharray="5 4"/><text x="'+(W-pad-4)+'" y="'+(yy-4)+'" fill="'+col+'" font-size="10" text-anchor="end">'+txt+' '+v.toFixed(2)+'</text>';};
+  return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;background:#0d1522;border-radius:8px">'+g
+    +lvl(mn+(mx-mn)*0.15,"#4ea1ff","区间低点")+lvl(mx-(mx-mn)*0.15,"#f0b354","区间高点")
+    +'<text x="'+(W/2)+'" y="'+(H/2+30)+'" fill="#2c3a58" font-size="16" text-anchor="middle" font-weight="bold">模拟数据</text></svg>';
+};
+
+R.holdingSummary = function(h){
+  const mv = h.qty*h.price;
+  const pnl = h.cost ? (h.price-h.cost)*h.qty : null;
+  const pnlCls = pnl===null ? "flat" : (pnl>0?"up":(pnl<0?"down":"flat"));
+  const pnlTxt = pnl===null ? "待整理" : ((pnl>0?"+":"-")+fmt(Math.abs(pnl)));
+  return '<div class="grid g4" style="margin-bottom:14px">'
+    +'<div class="card kpi"><div class="label">持仓数量</div><div class="value num" style="font-size:18px">'+h.qty.toLocaleString()+' '+h.unit+'</div><div class="sub">'+(h.acct==="real"?"真实仓":"模拟仓 / 观察池")+(h.qty===0?"（当前未持有）":"")+'</div></div>'
+    +'<div class="card kpi"><div class="label">现价'+(h.cost?' / 成本':'')+'</div><div class="value num" style="font-size:18px">'+h.price.toFixed(h.price<10?3:2)+(h.cost?' <span class="dim" style="font-size:12px">/ '+h.cost.toFixed(3)+'</span>':'')+'</div><div class="sub">数据截至 2026-10-19 15:00 收盘</div></div>'
+    +'<div class="card kpi"><div class="label">持仓市值</div><div class="value num" style="font-size:18px;color:#4ea1ff">'+fmt(mv)+'</div><div class="sub">按静态收盘价计算</div></div>'
+    +'<div class="card kpi"><div class="label">浮动盈亏</div><div class="value num '+pnlCls+'" style="font-size:18px">'+pnlTxt+'</div><div class="sub">'+(pnl===null?"成本数据待整理":"与成本口径差异待核对")+'</div></div>'
+    +'</div>';
+};
+
+R.genericDetail = function(h, b){
+  const styleRow = DATA.styleLabAll.filter(s=>s.code===h.code)[0];
+  const flyParts = styleRow ? styleRow.fly.split("/") : null;
+  const styleTab = tableWrap('<table><thead><tr><th>风格</th><th>模拟累计收益</th><th>最大回撤</th><th>卖飞风险</th><th>适用说明</th></tr></thead><tbody>'
+    + [["A 趋势持有","a","沿中期均线持有，适合基本面驱动的趋势行情"],["B 中期波段","b","在均线区间内高抛低吸，控制回撤"],["C 短线高抛低吸","c","日内/隔日级交易，摩擦成本高需盯盘"],["D 突破跟随","d","放量突破时跟进，假突破需严格止损"]].map((r,i)=>{
+        const v = styleRow ? styleRow[r[1]] : null;
+        const fly = flyParts ? flyParts[i] : null;
+        return '<tr><td><b>'+r[0]+'</b></td><td class="num '+(v?"up":"flat")+'">'+(v||"待确认")+'</td><td class="num flat">待确认</td><td>'+(fly?badge(fly,fly==="低"?"green":(fly==="中"?"gold":"red")):'<span class="flat">待确认</span>')+'</td><td class="dim" style="white-space:normal">'+r[2]+'</td></tr>';
+      }).join("")+'</tbody></table>')
+    + '<div class="note" style="margin-top:12px">风格实验室对四种风格在同一历史区间回放对比，未纳入回放样本的格子一律显示 待确认，不回填猜测值。卖飞风险 = 卖出后 20 个交易日内涨幅超 8% 的机会成本计量，口径详见「复盘与回测 → 风格实验室」。<span class="watermark">模拟数据</span></div>';
+  const finTab = tableWrap('<table><thead><tr><th>指标</th><th>2024A</th><th>2025E</th><th>2026E</th></tr></thead><tbody>'
+    + ["营业收入","归母净利润","EPS（元）","ROE（%）","毛利率（%）"].map(k=>'<tr><td>'+k+'</td><td class="num">待确认</td><td class="num">待确认</td><td class="num">待确认</td></tr>').join("")+'</tbody></table>')
+    + '<div class="note" style="margin-top:12px">财务与盈利预测数据待 iFinD 接入后自动填充；未经交叉验证前一律显示 待确认，不进入 ATS-S100 评分，不提供伪精确值。ETF 无个股盈利预测口径，以跟踪指数成分与基金净值数据替代。</div>';
+  return [
+    '<div class="grid g4">'
+    +'<div class="card kpi"><div class="label">ATS-S100 综合评分</div><div class="value num" style="color:#f0b354">待评分</div><div class="sub">三项硬校验未全部通过前不打分</div></div>'
+    +'<div class="card kpi"><div class="label">行业 RS 排名</div><div class="value num" style="font-size:16px">'+b.rsRank+'</div><div class="sub">'+b.industry+' · 周频更新</div></div>'
+    +'<div class="card kpi"><div class="label">温斯坦阶段</div><div class="value num" style="font-size:16px;color:#2fbf71">'+b.stage+'</div><div class="sub">行业轮动四阶段法</div></div>'
+    +'<div class="card kpi"><div class="label">适配交易风格</div><div class="value num" style="font-size:16px;color:#4ea1ff">'+b.style+'</div><div class="sub">风格实验室结论</div></div>'
+    +'</div><div class="note" style="margin-top:14px">诊断摘要：'+b.summary+'</div>'
+    +'<div class="section-title" style="margin-top:18px">持仓概况</div>'+R.holdingSummary(h),
+    finTab,
+    '<div class="grid g3">'+["悲观","中性","乐观"].map(s=>'<div class="card"><h3>情景估值（'+s+'）</h3><div class="num" style="font-size:22px;font-weight:700;color:#f0b354;margin:8px 0">待确认</div><div class="dim" style="font-size:12px">数据源接入后计算，不给伪精确值</div></div>').join("")+'</div>'
+    +'<div class="note" style="margin-top:14px">当前估值与一致预期：待确认。预期差真实性硬校验通过前，不输出情景估值与目标价；估值百分位数据见「选股雷达 → 行业轮动」。</div>',
+    '<div class="card"><h3>日K线（近30个交易日）<span class="watermark">模拟数据</span></h3>'+R.klineGeneric(b.seed, h.price)+'</div>'
+    +'<div class="note" style="margin-top:12px">关键价位与买卖点标记：待确认（需历史行情接入后标定支撑/压力与失效价）。上图仅示意近期价格走势结构，请勿据此交易。</div>'
+    +'<div class="section-title" style="margin-top:18px">持仓概况</div>'+R.holdingSummary(h),
+    styleTab,
+    '<div class="grid g2"><div class="card"><h3>未来催化剂</h3><ul style="list-style:none">'+b.cats.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="up">▲</span> '+c+'</li>').join("")+'</ul></div>'
+    +'<div class="card"><h3>风险清单</h3><ul style="list-style:none">'+b.risks.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="down">▼</span> '+c+'</li>').join("")+'</ul></div></div>'
+    +'<div class="note" style="margin-top:12px">催化剂与风险均来自公开信息与内部扫描记录，时间敏感；触发与否以公告与行情数据为准。</div>',
+    R.holdingSummary(h)
+    +'<div class="section-title" style="margin-top:4px">决策与交易时间线</div>'
+    +'<div class="timeline">'+b.hist.map(x=>'<div class="tl-item"><div class="d">'+x.date+' · '+x.type+'</div><div class="t">'+escHtml(x.act)+'<br><span class="dim">'+escHtml(x.note)+'</span></div></div>').join("")+'</div>'
+    +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；无记录表示该标的尚无系统级操作，不代表无任何交易行为。</div>'
+  ];
 };
 
 R.detail = function(){
@@ -641,11 +813,10 @@ R.detail = function(){
   if(!h) { state.detail=null; return R.research(); }
   const isZj = h.code==="601899";
   const tabs = ["综合诊断","财务与盈利预测","估值与预期差","K线与买卖点","交易风格实验室","催化剂与风险","历史决策与交易记录"];
-  const dtabs = '<div style="display:flex;border-bottom:1px solid #1d2a42;margin-bottom:0">'+tabs.map((t,i)=>'<div class="dtab'+(state.detailTab===i?' active':'')+'" data-dt="'+i+'">'+t+'</div>').join("")+'</div>';
+  const dtabs = '<div style="display:flex;overflow-x:auto;border-bottom:1px solid #1d2a42;margin-bottom:0">'+tabs.map((t,i)=>'<div class="dtab'+(state.detailTab===i?' active':'')+'" data-dt="'+i+'">'+t+'</div>').join("")+'</div>';
   let body;
-  if(!isZj){
-    body = '<div class="empty-state"><div class="big">数据整理中</div><div>'+h.name+'（'+h.code+'）的七维研究档案正在整理，预计随下一数据同步批次开放。</div></div>';
-  } else {
+  const brief = DATA.stockBrief ? DATA.stockBrief[h.code] : null;
+  if(isZj){
     const d = DATA.zjDetail;
     const bodies = [
       '<div class="grid g4">'
@@ -670,14 +841,21 @@ R.detail = function(){
       +'<div class="note" style="margin-top:12px">「卖飞风险」为风格实验室的专项计量：卖出后继续上涨造成的机会成本，按历史信号回放统计，用于在「落袋为安」与「让利润奔跑」之间定量取舍。</div>',
       '<div class="grid g2"><div class="card"><h3>未来催化剂</h3><ul style="list-style:none">'+d.catalysts.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="up">▲</span> '+c+'</li>').join("")+'</ul></div>'
       +'<div class="card"><h3>风险清单</h3><ul style="list-style:none">'+d.risks.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="down">▼</span> '+c+'</li>').join("")+'</ul></div></div>',
-      '<div class="timeline">'+d.history.map(x=>'<div class="tl-item"><div class="d">'+x.date+' · '+x.type+'</div><div class="t">'+x.act+'<br><span class="dim">'+x.note+'</span></div></div>').join("")+'</div>'
+      R.holdingSummary(h)
+      +'<div class="section-title" style="margin-top:4px">决策与交易时间线</div>'
+      +'<div class="timeline">'+d.history.map(x=>'<div class="tl-item"><div class="d">'+x.date+' · '+x.type+'</div><div class="t">'+x.act+'<br><span class="dim">'+x.note+'</span></div></div>').join("")+'</div>'
+      +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；复盘归档任务（15:35）每日核对更新。</div>'
     ];
     body = dtabs + '<div class="dpanel">' + bodies[state.detailTab] + '</div>';
+  } else if(brief){
+    body = dtabs + '<div class="dpanel">' + R.genericDetail(h, brief)[state.detailTab] + '</div>';
+  } else {
+    body = '<div class="empty-state"><div class="big">数据整理中</div><div>'+h.name+'（'+h.code+'）的七维研究档案正在整理，预计随下一数据同步批次开放。</div></div>';
   }
   const dq = DataFeed.quotes[h.code];
   const dpx = dq ? dq.price : h.price;
-  const dchg = dq ? dq.chg : (h.code==="601899"?0.67:0);
-  return '<div class="detail-head"><div><span class="backlink" id="backBtn">← 返回个股列表</span><div style="margin-top:8px"><span class="nm">'+h.name+'</span><span class="code mono">'+h.code+'</span> '+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+(isZj?" "+badge("深度档案","gold"):"")+'</div></div>'
+  const dchg = dq ? dq.chg : (typeof h.chg==="number" ? h.chg : (h.code==="601899" ? 0.67 : 0));
+  return '<div class="detail-head"><div><span class="backlink" id="backBtn">← 返回个股列表</span><div style="margin-top:8px"><span class="nm">'+h.name+'</span><span class="code mono">'+h.code+'</span> '+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+(isZj?" "+badge("深度档案","gold"):(brief?" "+badge("研究档案","blue"):""))+'</div></div>'
     +'<div style="text-align:right"><div class="num" style="font-size:24px;font-weight:700">'+dpx.toFixed(2)+'</div><div class="num">'+chg(dchg)+'</div><div class="dim" style="font-size:11px;margin-top:4px">'+(dq?"实时行情 · 东方财富接口":"数据截至 2026-10-19 15:00 收盘")+'</div></div></div>'
     +body;
 };
@@ -733,6 +911,16 @@ R.strategy = function(){
     +'<div class="section-title">大师共识面板</div><div class="grid g4">'+mas+'</div>';
 };
 
+R.simLedger = function(){
+  const tl = DATA.sim.tradeLog || [];
+  if(!tl.length){
+    return '<div class="card"><div class="empty-state"><div class="big">尚无成交</div><div>AI模拟仓从 ¥150,000 现金开始，当前 0 仓位、0 成交。<br>首笔成交将在此逐笔登记，并强制携带完整归因字段。</div></div></div>';
+  }
+  const rows = tl.map(t=>'<tr><td class="num dim">'+escHtml(t.time)+'</td><td>'+(t.side==="buy"?badge("模拟买入","red"):badge("模拟卖出","green"))+'</td><td>'+escHtml(t.name)+' <span class="dim mono">'+escHtml(t.code)+'</span></td><td class="num">'+t.qty.toLocaleString()+'</td><td class="num">'+t.price.toFixed(2)+'</td><td class="num">'+fmt(t.amount)+'</td></tr>').join("");
+  return tableWrap('<table><thead><tr><th>时间</th><th>方向</th><th>标的</th><th>数量</th><th>价格</th><th>金额</th></tr></thead><tbody>'+rows+'</tbody></table>')
+    +'<div class="note" style="margin-top:12px">归因字段（选股来源 / 市场阶段 / 入场策略 / 入场依据 / 退出规则 / 结果）：模拟成交由页内 Agent 或 AI 模式登记，复盘时补全。</div>';
+};
+
 R.trade = function(){
   const p = DATA.pipelineSample;
   const stages = [
@@ -760,13 +948,13 @@ R.trade = function(){
     +'<div class="section-title">条件单列表</div>'
     +tableWrap('<table><thead><tr><th>标的</th><th>类型</th><th>触发条件</th><th>数量</th><th>状态</th><th>创建时间</th></tr></thead><tbody>'+condRows+'</tbody></table>')
     +'<div class="section-title">模拟成交台账（AI模拟仓）</div>'
-    +'<div class="card"><div class="empty-state"><div class="big">尚无成交</div><div>AI模拟仓从 ¥150,000 现金开始，当前 0 仓位、0 成交。<br>首笔成交将在此逐笔登记，并强制携带完整归因字段。</div></div></div>';
+    +R.simLedger();
 };
 
 R.review = function(){
   let html = R.subtabs([{id:"log",name:"复盘日志"},{id:"perf",name:"双仓表现"},{id:"style",name:"风格实验室"}]);
   if(state.sub==="log"){
-    html += '<div class="card"><div class="timeline" style="margin-top:4px">'+DATA.reviews.map(r=>'<div class="tl-item"><div class="d">'+r.date+' · '+r.wday+'</div><div class="t"><ul style="list-style:none;margin-top:4px">'+r.items.map(i=>'<li style="margin:5px 0 5px 2px;line-height:1.7">· '+i+'</li>').join("")+'</ul></div></div>').join("")+'</div></div>';
+    html += '<div class="card"><div class="timeline" style="margin-top:4px">'+DATA.reviews.map(r=>'<div class="tl-item"><div class="d">'+r.date+' · '+r.wday+'</div><div class="t"><ul style="list-style:none;margin-top:4px">'+r.items.map(i=>'<li style="margin:5px 0 5px 2px;line-height:1.7">· '+escHtml(i)+'</li>').join("")+'</ul></div></div>').join("")+'</div></div>';
   } else if(state.sub==="perf"){
     const rows = DATA.pk.metrics.map(m=>'<tr><td>'+m.k+'</td><td class="num"><b>'+m.real+'</b></td><td class="num" style="color:#4ea1ff"><b>'+m.sim+'</b></td><td class="dim">'+m.remark+'</td></tr>').join("");
     html += '<div class="card"><h3>双仓净值曲线 <span class="watermark">模拟数据</span></h3>'+R.pkChart()+'</div>'
@@ -864,7 +1052,7 @@ const DataFeed = {
   },
   schedule: function(){
     if(DataFeed.timer){ clearInterval(DataFeed.timer); DataFeed.timer=null; }
-    const isBrowser = typeof navigator!=="undefined";
+    const isBrowser = typeof requestAnimationFrame === "function";
     if(DataFeed.auto && isBrowser){
       DataFeed.timer = setInterval(()=>{ if(!document.hidden) DataFeed.refresh(); }, 30000);
     }
@@ -884,6 +1072,358 @@ function updateFeedBadge(){
     if(el){ el.textContent=txt; el.className=cls; }
   });
 }
+
+const Agent = {
+  history: (function(){ try{ const h=JSON.parse(store("ats_agent_history")||"[]"); return Array.isArray(h)?h:[]; }catch(e){ return []; } })(),
+  SYS_PROMPT: [
+    "你是 ATS-S100 AI投机决策系统的页内助手。页面是单文件离线原型，全部数据在 JS 的 DATA 对象中：",
+    "- DATA.realAcct：真实账户（total 总资产 148268.74，securities 证券市值，available 可用资金，withdrawable 可取资金，asOf 数据时间）",
+    "- DATA.holdings：持仓数组（name/code/qty/price/cost/acct=real|sim，含 8 只真实仓持仓）",
+    "- DATA.sim：模拟仓（initial 150000，cash 现金，pos 持仓数量映射 code→qty，trades 成交笔数，tradeLog 成交记录）",
+    "- DATA.goal：盈利目标（initial 150000，target 195000，targetDate 2027-02-05，daysLeft 80，daily 0.351）",
+    "- DATA.equityHistory.sim / .real：净值数组 [{d:\"YYYY-MM-DD\", v:净值}]",
+    "- DATA.reviews：复盘日志（date/wday/items 数组）；DATA.notes：驾驶舱备注横幅；DataFeed：实时行情接口（online/lastSync/quotes）",
+    "- DATA.dims：ATS-S100 六维权重（盈利改善25/市场预期差25/估值与上涨空间20/价格与资金趋势15/未来催化剂10/财务与治理质量5，综合评分保持待评分）",
+    "",
+    "你可以通过返回 actions 数组操作页面（白名单校验，未知动作会被拒绝并告知用户）：",
+    '{"type":"navigate","target":"#overview/real"} 模块：overview/radar/research/strategy/trade/review/system，可带 /子页（如 #radar/macro、#review/log）',
+    '{"type":"setPrice","code":"601899","price":30.52,"chgPct":1.2} 修改静态 mock 价，chgPct 可选',
+    '{"type":"setHoldingQty","code":"601899","qty":400} 修改持仓数量',
+    '{"type":"addSimTrade","side":"buy|sell","code":"601899","qty":100,"price":29.90} 数量为 100 整数倍；买入校验现金、卖出校验持仓，失败会返回原因',
+    '{"type":"pushEquity","account":"sim|real","value":150800,"date":"2026-10-20"} date 可省略（默认当天），同日重复推送会覆盖',
+    '{"type":"addLog","date":"2026-10-20","content":"复盘内容"} date 可省略（默认当天）',
+    '{"type":"addNote","content":"备注内容"} 显示在驾驶舱盈利区',
+    '{"type":"toggleFeed","on":true} 开关实时行情 30 秒自动刷新',
+    "",
+    "规则：1) 回复必须是 JSON：{\"say\":\"给用户的中文回复\",\"actions\":[...]}，无动作时 actions 为空数组，不要输出 JSON 以外的内容；",
+    "2) 禁止编造已发生的真实成交或真实行情；修改任何数据必须在 say 中明说改了什么；",
+    "3) 回答账户/持仓/目标类问题优先引用上述数据结构中的真实数值，不确定就说不确定；",
+    "4) 你是研究辅助工具，必要时提醒用户本系统不构成投资建议。"
+  ].join("\n"),
+
+  cfg: function(){
+    let c = {};
+    try{ c = JSON.parse(store("ats_agent_api")||"{}")||{}; }catch(e){}
+    return { key: c.key||"", endpoint: c.endpoint||"https://api.moonshot.cn/v1/chat/completions", model: c.model||"kimi-k2-0711-preview" };
+  },
+
+  exec: function(actions){
+    const results = [];
+    if(!Array.isArray(actions)) return [{ok:false, msg:"动作列表格式无效（应为数组）"}];
+    for(const a of actions){
+      try{ results.push(Agent.runAction(a)); }
+      catch(err){ results.push({ok:false, msg: "动作 "+(a&&a.type?JSON.stringify(a.type):"?")+" 被拒绝：" + (err && err.message ? err.message : err)}); }
+    }
+    try{ render(); }catch(e){}
+    return results;
+  },
+
+  runAction: function(a){
+    if(!a || typeof a!=="object" || typeof a.type!=="string") throw new Error("动作必须是含 type 字段的对象");
+    switch(a.type){
+      case "navigate": {
+        const t = String(a.target||"");
+        const mod = t.replace(/^#/,"").split("/")[0];
+        if(!/^#?[a-z]+\/?[a-z]*$/.test(t) || !titles[mod]) throw new Error("未知导航目标 "+t);
+        location.hash = t;
+        route();
+        return {ok:true, msg:"已跳转到 "+titles[mod]};
+      }
+      case "setPrice": {
+        const h = findHolding(a.code); if(!h) throw new Error("找不到持仓 "+a.code);
+        const p = Number(a.price);
+        if(!isFinite(p) || p<=0) throw new Error("价格无效");
+        h.price = p;
+        if(typeof a.chgPct==="number") h.chg = a.chgPct;
+        return {ok:true, msg:"已把 "+h.name+"（"+h.code+"）静态价格改为 "+p.toFixed(2)};
+      }
+      case "setHoldingQty": {
+        const h = findHolding(a.code); if(!h) throw new Error("找不到持仓 "+a.code);
+        const q = Number(a.qty);
+        if(!Number.isInteger(q) || q<0) throw new Error("数量必须是非负整数");
+        h.qty = q;
+        return {ok:true, msg:"已把 "+h.name+"（"+h.code+"）持仓数量改为 "+q.toLocaleString()+" "+h.unit};
+      }
+      case "addSimTrade": {
+        const h = findHolding(a.code); if(!h) throw new Error("找不到标的 "+a.code);
+        const side = a.side==="sell" ? "sell" : "buy";
+        const qty = Number(a.qty);
+        if(!Number.isInteger(qty) || qty<=0 || qty%100!==0) throw new Error("数量须为 100 的整数倍");
+        const q = DataFeed.quotes[h.code];
+        const price = (a.price!==undefined && isFinite(Number(a.price))) ? Number(a.price) : (q ? q.price : h.price);
+        if(!isFinite(price) || price<=0) throw new Error("价格无效");
+        DATA.sim.pos = DATA.sim.pos || {}; DATA.sim.tradeLog = DATA.sim.tradeLog || [];
+        if(side==="buy"){
+          const cost = qty*price;
+          if(cost > DATA.sim.cash + 1e-6) throw new Error("模拟仓现金不足：需 "+fmt(cost)+"，可用 "+fmt(DATA.sim.cash));
+          DATA.sim.cash = Math.round((DATA.sim.cash - cost)*100)/100;
+          DATA.sim.pos[h.code] = (DATA.sim.pos[h.code]||0) + qty;
+        } else {
+          const have = DATA.sim.pos[h.code]||0;
+          if(have < qty) throw new Error("模拟仓持仓不足：持有 "+have+" 股，无法卖出 "+qty+" 股");
+          DATA.sim.pos[h.code] = have - qty;
+          if(DATA.sim.pos[h.code]===0) delete DATA.sim.pos[h.code];
+          DATA.sim.cash = Math.round((DATA.sim.cash + qty*price)*100)/100;
+        }
+        DATA.sim.trades = (DATA.sim.trades||0) + 1;
+        const d = new Date();
+        DATA.sim.tradeLog.unshift({time: todayStr()+" "+d.toTimeString().slice(0,8), side: side, name: h.name, code: h.code, qty: qty, price: price, amount: Math.round(qty*price*100)/100});
+        return {ok:true, msg:"已模拟"+(side==="buy"?"买入":"卖出")+" "+h.name+" "+qty.toLocaleString()+" 股 @"+price.toFixed(2)+"（"+fmt(qty*price)+"）"};
+      }
+      case "pushEquity": {
+        const acct = a.account==="real" ? "real" : "sim";
+        const v = Number(a.value);
+        if(!isFinite(v) || v<=0) throw new Error("净值无效");
+        const d = a.date ? String(a.date) : todayStr();
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(d)) throw new Error("日期格式应为 YYYY-MM-DD");
+        const arr = DATA.equityHistory[acct];
+        const ex = arr.filter(p=>p.d===d)[0];
+        if(ex) ex.v = v; else arr.push({d:d, v:v});
+        arr.sort((x,y)=> x.d<y.d ? -1 : 1);
+        return {ok:true, msg:"已向"+(acct==="sim"?"模拟":"真实")+"仓净值序列推送 "+d+" = "+v.toLocaleString()};
+      }
+      case "addLog": {
+        const content = String(a.content||"").trim();
+        if(!content) throw new Error("复盘内容为空");
+        const d = a.date ? String(a.date) : todayStr();
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(d)) throw new Error("日期格式应为 YYYY-MM-DD");
+        DATA.reviews.unshift({date: d, wday: weekCN(d), items: [content.slice(0,500)]});
+        return {ok:true, msg:"已在复盘日志 "+d+" 添加一条记录"};
+      }
+      case "addNote": {
+        const content = String(a.content||"").trim();
+        if(!content) throw new Error("备注内容为空");
+        DATA.notes.push({content: content.slice(0,200), ts: Date.now()});
+        return {ok:true, msg:"已在驾驶舱盈利区添加备注横幅"};
+      }
+      case "toggleFeed": {
+        const on = !!a.on;
+        DataFeed.setAuto(on);
+        return {ok:true, msg: on ? "已开启实时行情自动刷新（30 秒轮询）" : "已关闭实时行情自动刷新，显示静态数据"};
+      }
+      default:
+        throw new Error("未知动作类型（白名单拒绝）");
+    }
+  },
+
+  handle: function(text){
+    const t = String(text||"").trim();
+    let m;
+    m = t.match(/记录复盘\s*[:：]?\s*(.+)$/);
+    if(m) return {say:"", actions:[{type:"addLog", date: todayStr(), content: m[1]}]};
+    m = t.match(/模拟(买入|卖出|买|卖)\s*([\u4e00-\u9fa5A-Za-z]+|\d{6})\s*(\d+)\s*(?:股|手|份)?(?:\s*@\s*([\d.]+))?/);
+    if(m){
+      const h = findHolding(m[2]);
+      if(!h) return {say:"找不到标的「"+m[2]+"」，请检查名称或代码。", actions:[]};
+      return {say:"", actions:[{type:"addSimTrade", side: /买/.test(m[1])?"buy":"sell", code: h.code, qty: +m[3], price: m[4]?+m[4]:undefined}]};
+    }
+    if(/刷新行情|更新数据|拉取行情|重新拉取/.test(t)){ try{ DataFeed.refresh(); }catch(e){} return {say:"已发起行情手动刷新，结果请看页面右上角徽标（失败会自动回退静态数据）。", actions:[]}; }
+    if(/(关掉|关闭|停用)/.test(t) && /行情|刷新|实时/.test(t)) return {say:"", actions:[{type:"toggleFeed", on:false}]};
+    if(/(打开|开启|启用)/.test(t) && /行情|刷新|实时/.test(t)) return {say:"", actions:[{type:"toggleFeed", on:true}]};
+    m = t.match(/推送净值\s*([\d.]+)\s*(?:到|至)?\s*(模拟|真实|sim|real)?/i);
+    if(m){ const acct = /真实|real/i.test(m[2]||"") ? "real" : "sim"; return {say:"", actions:[{type:"pushEquity", account: acct, value: +m[1]}]}; }
+    m = t.match(/([^\s，,。]+?)\s*(?:的)?(价格|最新价|数量|持股|仓位)?\s*(?:改成|改为|设为|设置为|调到|调整(?:为|至)?)\s*([\d.]+)\s*(股|手|份|元|块)?/);
+    if(m){
+      const key = m[1].replace(/^(把|将)/, "");
+      const h = findHolding(key);
+      if(h){
+        const val = +m[3], unit = m[4]||"", kw = m[2]||"";
+        if(kw==="价格" || kw==="最新价" || unit==="元" || unit==="块") return {say:"", actions:[{type:"setPrice", code: h.code, price: val}]};
+        const qty = unit==="手" ? val*100 : val;
+        return {say:"", actions:[{type:"setHoldingQty", code: h.code, qty: qty}]};
+      }
+      return {say:"找不到持仓「"+key+"」。可说的标的示例：紫金矿业 / 601899 / 电力ETF 等。", actions:[]};
+    }
+    if(/跳|打开|看看|切换|进入|前往|去/.test(t)){
+      const map = [[/总览|驾驶舱/,"overview/real"],[/雷达/,"radar/macro"],[/个股/,"research/main"],[/策略/,"strategy/main"],[/交易计划|交易/,"trade/main"],[/复盘|回测/,"review/log"],[/系统/,"system/main"]];
+      for(const pair of map){ if(pair[0].test(t)) return {say:"", actions:[{type:"navigate", target: "#"+pair[1]}]}; }
+    }
+    if(/还差|进度|目标|日均|缺口/.test(t)){
+      return {say:"盈利目标：2027-02-05（春节前最后交易日）前 +30%，¥150,000 → ¥195,000。当前：模拟仓 ¥150,000.00（0 盈亏，尚未开仓）；真实仓 ¥148,268.74，累计亏损 -¥1,731.26（-1.15%，绿色为亏损）。距离目标缺口：模拟 ¥45,000 / 真实 ¥46,731.26；目标进度：0% / -3.8%。剩余约 80 个交易日（估算），所需日均约 +0.375%（模拟）/ +0.389%（真实）。", actions:[]};
+    }
+    if(/持仓|仓位/.test(t)){
+      const hs = DATA.holdings.filter(h=>h.acct==="real");
+      return {say:"真实仓 "+hs.length+" 只持仓：\n"+hs.map(h=>"· "+h.name+"（"+h.code+"）"+h.qty.toLocaleString()+h.unit).join("\n")+"\n可用资金 "+fmt(DATA.realAcct.available)+"，可取 "+fmt(DATA.realAcct.withdrawable)+"。", actions:[]};
+    }
+    if(/权重|评分|六维/.test(t)){
+      return {say:"ATS-S100 六维权重："+DATA.dims.map(d=>d.name+" "+d.wt).join(" / ")+"。综合评分：待评分（三项硬校验未全部通过前不打分，系统不提供伪精确分数）。", actions:[]};
+    }
+    if(/模拟仓|现金|空仓/.test(t)){
+      const s = DATA.sim; const pk = Object.keys(s.pos||{}).filter(k=>s.pos[k]>0);
+      return {say:"AI模拟仓：初始 ¥150,000，当前现金 "+fmt(s.cash)+"，持仓 "+(pk.length?pk.map(k=>{const h=findHolding(k);return h?h.name+" "+s.pos[k]+"股":k;}).join("、"):"0 只（空仓）")+"，累计成交 "+s.trades+" 笔。", actions:[]};
+    }
+    if(/几点|时间|截止|同步/.test(t)){
+      return {say:"静态数据截至 2026-10-19 15:00 收盘（真实账户快照 14:56）。实时行情接口：" + (DataFeed.online===true ? "在线，最后更新 "+(DataFeed.lastSync||"—") : "离线（静态数据兜底）") + "。", actions:[]};
+    }
+    return {say:"本地模式无法回答这个问题。可以试试：「跳到 雷达」、「刷新行情」、「紫金矿业改成 400 股」、「模拟买入 紫金矿业 100 股」、「记录复盘：……」、「推送净值 150800」、「关掉实时行情」，或切换到 AI 模式。", actions:[]};
+  },
+
+  parseReply: function(content){
+    let txt = String(content||"").trim();
+    txt = txt.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"");
+    const s0 = txt.indexOf("{"), s1 = txt.lastIndexOf("}");
+    if(s0<0 || s1<=s0) throw new Error("AI 回复不是有效 JSON");
+    const j = JSON.parse(txt.slice(s0, s1+1));
+    if(!j || typeof j.say!=="string") throw new Error("AI 回复缺少 say 字段");
+    return {say: j.say, actions: Array.isArray(j.actions) ? j.actions : []};
+  },
+
+  aiReply: async function(text){
+    const cfg = Agent.cfg();
+    if(!cfg.key){ Agent.say("AI 模式尚未配置 API Key。点击面板右上角 ⚙ 填写（Key 仅保存在本机浏览器，默认走 Kimi OpenAI 兼容端点），或切回本地模式。"); return; }
+    const typing = Agent.say("正在请求 AI 模式…", true);
+    const ctrl = (typeof AbortController!=="undefined") ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(()=>{ try{ ctrl.abort(); }catch(e){} }, 60000) : null;
+    try{
+      const resp = await fetch(cfg.endpoint, {
+        method: "POST",
+        headers: { "Content-Type":"application/json", "Authorization":"Bearer "+cfg.key },
+        body: JSON.stringify({ model: cfg.model, temperature: 0.3, messages: [{role:"system", content: Agent.SYS_PROMPT},{role:"user", content: text}] }),
+        signal: ctrl ? ctrl.signal : undefined
+      });
+      if(timer) clearTimeout(timer);
+      if(!resp.ok){
+        let detail = "";
+        try{ const j = await resp.json(); detail = (j.error && j.error.message) || j.message || ""; }catch(e){}
+        throw new Error("接口返回 HTTP "+resp.status+(detail ? "："+detail : ""));
+      }
+      const data = await resp.json();
+      const content = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+      const parsed = Agent.parseReply(content);
+      let reply = parsed.say;
+      if(parsed.actions.length){
+        const res = Agent.exec(parsed.actions);
+        const fails = res.filter(r=>!r.ok).map(r=>r.msg);
+        if(fails.length) reply += "\n（部分动作未执行：" + fails.join("；") + "）";
+      }
+      Agent.replaceLast(typing, reply);
+    }catch(err){
+      if(timer) clearTimeout(timer);
+      Agent.replaceLast(typing, "AI 模式请求失败：" + (err && err.message ? err.message : "网络错误") + "。请检查 API Key / 接口地址 / 网络，或切换回本地模式。");
+    }
+  },
+
+  send: function(){
+    const inp = document.getElementById("agentInput");
+    if(!inp) return;
+    const text = inp.value.trim();
+    if(!text) return;
+    inp.value = "";
+    Agent.push("user", text);
+    Agent.renderHistory();
+    if(state.agentMode==="ai"){ Agent.aiReply(text); return; }
+    let reply = "";
+    try{
+      const r = Agent.handle(text);
+      if(r.actions && r.actions.length){
+        const res = Agent.exec(r.actions);
+        reply = res.map(x=>x.msg).join("；");
+      }
+      if(r.say) reply = reply ? reply + "\n" + r.say : r.say;
+    }catch(err){
+      reply = "指令处理出错：" + (err && err.message ? err.message : err);
+    }
+    if(reply) Agent.say(reply);
+  },
+
+  push: function(role, text){
+    Agent.history.push({role: role, text: String(text), ts: Date.now()});
+    while(Agent.history.length > 50) Agent.history.shift();
+    store("ats_agent_history", JSON.stringify(Agent.history));
+  },
+  say: function(text, transient){
+    if(!transient){ Agent.push("agent", text); }
+    Agent.renderHistory();
+    if(!transient) return null;
+    if(typeof document.createElement!=="function") return null;
+    const box = document.getElementById("agentMsgs");
+    const d = document.createElement("div");
+    d.className = "ag-msg bot";
+    d.textContent = text;
+    if(box) box.appendChild(d);
+    return d;
+  },
+  replaceLast: function(el, text){
+    if(el && el.parentNode){ el.textContent = text; Agent.push("agent", text); store("ats_agent_history", JSON.stringify(Agent.history)); Agent.renderHistory(); return; }
+    Agent.say(text);
+  },
+  renderHistory: function(){
+    const box = document.getElementById("agentMsgs");
+    if(!box || typeof document.createElement!=="function") return;
+    box.innerHTML = "";
+    Agent.history.forEach(mm=>{
+      const d = document.createElement("div");
+      d.className = "ag-msg " + (mm.role==="user" ? "user" : "bot");
+      d.textContent = mm.text;
+      const ts = document.createElement("span");
+      ts.className = "ag-time";
+      ts.textContent = new Date(mm.ts).toTimeString().slice(0,5);
+      d.appendChild(ts);
+      box.appendChild(d);
+    });
+    box.scrollTop = box.scrollHeight;
+  },
+  syncPanel: function(){
+    const panel = document.getElementById("agentPanel");
+    if(!panel) return;
+    panel.querySelectorAll("[data-agmode]").forEach(b=> b.classList.toggle("active", b.dataset.agmode===state.agentMode));
+    const cfg = Agent.cfg();
+    const keyEl = document.getElementById("agKey"), epEl = document.getElementById("agEndpoint"), mdEl = document.getElementById("agModel");
+    if(keyEl && document.activeElement!==keyEl) keyEl.value = cfg.key;
+    if(epEl && document.activeElement!==epEl) epEl.value = cfg.endpoint;
+    if(mdEl && document.activeElement!==mdEl) mdEl.value = cfg.model;
+    const st = document.getElementById("agCfgState");
+    if(st) st.textContent = cfg.key ? ("已配置 Key（尾号 "+cfg.key.slice(-4)+"）· "+cfg.model) : "未配置 API Key（AI 模式暂不可用）";
+  },
+  toggle: function(open){
+    const panel = document.getElementById("agentPanel");
+    if(!panel) return;
+    const willOpen = (open===undefined) ? !panel.classList.contains("open") : !!open;
+    panel.classList.toggle("open", willOpen);
+    if(willOpen){ Agent.syncPanel(); Agent.renderHistory(); const inp=document.getElementById("agentInput"); if(inp) inp.focus(); }
+  },
+  init: function(){
+    if(typeof document.createElement!=="function" || !document.body) return;
+    const fab = document.createElement("button");
+    fab.id = "agentFab"; fab.textContent = "AI"; fab.title = "页内助手";
+    const panel = document.createElement("div");
+    panel.id = "agentPanel";
+    panel.innerHTML = '<div class="ag-head"><span class="ag-title">ATS-S100 页内助手</span>'
+      +'<div class="ag-modes"><button class="ag-mode" data-agmode="local">本地模式</button><button class="ag-mode" data-agmode="ai">AI 模式</button></div>'
+      +'<button class="ag-iconbtn" id="agGear" title="设置">⚙</button>'
+      +'<button class="ag-iconbtn" id="agClose" title="关闭">✕</button></div>'
+      +'<div id="agentSettings">'
+      +'<label>API Key（仅保存在本机浏览器）<input id="agKey" type="password" placeholder="sk-..." autocomplete="off"></label>'
+      +'<label>接口地址（OpenAI 兼容 chat/completions）<input id="agEndpoint" placeholder="https://api.moonshot.cn/v1/chat/completions" autocomplete="off"></label>'
+      +'<label>模型名<input id="agModel" placeholder="kimi-k2-0711-preview" autocomplete="off"></label>'
+      +'<div style="display:flex;align-items:center;gap:10px"><button class="btn" id="agSave">保存设置</button><span class="dim" id="agCfgState" style="font-size:11px"></span></div></div>'
+      +'<div id="agentMsgs"></div>'
+      +'<div class="ag-inputrow"><input id="agentInput" placeholder="输入指令，如：跳到雷达 / 持仓 / 模拟买入 紫金矿业 100 股 / 记录复盘：…"><button class="btn" id="agSend">发送</button></div>'
+      +'<div class="ag-foot">AI 回复仅供参考，不构成投资建议；API Key 仅保存在本机浏览器。本地模式不产生任何网络请求。</div>';
+    document.body.appendChild(fab);
+    document.body.appendChild(panel);
+    fab.addEventListener("click", ()=>Agent.toggle());
+    panel.querySelector("#agClose").addEventListener("click", ()=>Agent.toggle(false));
+    panel.querySelector("#agGear").addEventListener("click", ()=>{ const s=panel.querySelector("#agentSettings"); s.classList.toggle("open"); });
+    panel.querySelector("#agSave").addEventListener("click", ()=>{
+      const cfg = Agent.cfg();
+      const key = panel.querySelector("#agKey").value.trim();
+      const ep = panel.querySelector("#agEndpoint").value.trim();
+      const md = panel.querySelector("#agModel").value.trim();
+      store("ats_agent_api", JSON.stringify({key:key, endpoint:ep||cfg.endpoint, model:md||cfg.model}));
+      Agent.syncPanel();
+    });
+    panel.querySelector("#agSend").addEventListener("click", ()=>Agent.send());
+    panel.querySelector("#agentInput").addEventListener("keydown", e=>{ if(e.key==="Enter") Agent.send(); });
+    panel.querySelectorAll("[data-agmode]").forEach(b=> b.addEventListener("click", ()=>{
+      state.agentMode = b.dataset.agmode;
+      store("ats_agent_mode", state.agentMode);
+      Agent.syncPanel();
+    }));
+    Agent.syncPanel();
+  }
+};
+state.agentMode = store("ats_agent_mode") || "local";
 
 const titles = {overview:"总览驾驶舱",radar:"选股雷达",research:"个股研究",strategy:"AI策略中心",trade:"交易计划",review:"复盘与回测",system:"系统状态"};
 function render(){
@@ -920,6 +1460,7 @@ document.getElementById("page").addEventListener("click", e=>{
   const dt = e.target.closest("[data-dt]"); if(dt){ state.detailTab=+dt.dataset.dt; render(); return; }
   const pc = e.target.closest("[data-pacct]"); if(pc){ state.profitAcct=pc.dataset.pacct; render(); return; }
   const eq = e.target.closest("[data-eq]"); if(eq){ state.eqShow[eq.dataset.eq]=!state.eqShow[eq.dataset.eq]; render(); return; }
+  const cn = e.target.closest("[data-clrnote]"); if(cn){ if(DATA.notes && DATA.notes.length){ DATA.notes.splice(+cn.dataset.clrnote,1); render(); } return; }
   if(e.target.closest("[data-feed-refresh]")){ DataFeed.refresh(); return; }
   if(e.target.closest("#backBtn")){ state.detail=null; state.detailTab=0; render(); return; }
   const row = e.target.closest("tr.clickrow"); if(row && row.dataset.code){ state.detail=row.dataset.code; state.detailTab=0; state.module="research"; render(); }
@@ -930,6 +1471,7 @@ document.getElementById("page").addEventListener("change", e=>{
 window.addEventListener("hashchange", route);
 route();
 try{ DataFeed.init(); }catch(e){}
+try{ Agent.init(); }catch(e){}
 </script>
 </body>
 </html>
