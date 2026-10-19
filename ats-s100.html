@@ -145,6 +145,53 @@ tbody tr:hover{background:#121c31}
   #agentPanel{left:0;right:0;top:0;bottom:0;width:auto;height:auto;max-height:none;border-radius:0;z-index:80}
 }
 #bottomnav{display:none}
+:root{--radius:12px;--line:#1d2a42;--muted:#7c8aa5;--accent:#4ea1ff;--amber:#f0b354}
+.eyebrow{color:#5f7fbc;font-size:9px;letter-spacing:2px;margin-bottom:2px}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.page-head .subtitle{color:#7c8aa5;font-size:11px;margin-top:4px}
+.toast{position:fixed;bottom:calc(72px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,14px);padding:11px 18px;border:1px solid #3a5a94;background:#14203a;box-shadow:0 10px 40px rgba(0,0,0,.55);border-radius:9px;color:#dbe7ff;z-index:95;font-size:12.5px;max-width:90vw;opacity:0;pointer-events:none;transition:.22s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:768px){.toast{bottom:26px}}
+.modal-mask{position:fixed;inset:0;background:rgba(5,11,22,.72);backdrop-filter:blur(3px);display:grid;place-items:center;z-index:85;padding:18px}
+.modal{background:#101827;border:1px solid #2b3f66;border-radius:14px;padding:22px;width:620px;max-width:100%;max-height:88vh;overflow:auto;box-shadow:0 25px 100px rgba(0,0,0,.6)}
+.modal h2{font-size:16px;margin:0}
+.modal .modal-sub{font-size:11px;color:#7c8aa5;margin:8px 0 16px;line-height:1.7}
+.modal .modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;flex-wrap:wrap}
+.modal .close-x{padding:2px 9px;font-size:16px;background:none;border:1px solid transparent;color:#8fa0bd;border-radius:6px;cursor:pointer;font-family:inherit}
+.modal .close-x:hover{border-color:#2b3f66}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:11.5px;color:#a9b7d0}
+.field small{font-size:10px;color:#7c8aa5}
+.field input,.field select,.field textarea{width:100%;background:#0d1522;border:1px solid #1d2a42;border-radius:8px;color:#d7e0f0;padding:9px 11px;font-size:13px;font-family:inherit;outline:none;box-sizing:border-box}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#3a5a94}
+.field textarea{min-height:88px;resize:vertical}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field.full{grid-column:1/-1}
+@media(max-width:767px){.form-grid{grid-template-columns:1fr}}
+.btn2{padding:8px 15px;border-radius:8px;border:1px solid #1d2a42;background:#0e1626;color:#a9b7d0;font-size:12.5px;cursor:pointer;font-family:inherit}
+.btn2:hover{border-color:#2b3f66;background:#131c30}
+.btn2.primary{background:rgba(78,161,255,.16);border-color:#3a5a94;color:#7db9ff}
+.btn2.primary:hover{background:rgba(78,161,255,.28)}
+.btn2.danger{color:#ff8a93;border-color:#5b2730}
+.stage-strip{display:flex;gap:5px;margin:14px 0 4px;flex-wrap:wrap}
+.stage-cell{flex:1;min-width:64px;text-align:center;font-size:10.5px;padding:7px 3px;background:#0d1522;color:#5d6b85;border-radius:6px;border:1px solid #1d2a42}
+.stage-cell.done{background:rgba(78,161,255,.1);border-color:#2b3f66;color:#7db9ff}
+.stage-cell.current{background:#14203a;border-color:#4ea1ff;color:#fff}
+.plan-card{margin-bottom:14px}
+.plan-card.cancelled{opacity:.55}
+.plan-rule{font-size:12px;color:#a9b7d0;line-height:1.85;margin:10px 0}
+.plan-meta{display:flex;gap:14px;font-size:11px;color:#7c8aa5;flex-wrap:wrap}
+.plan-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #1d2a42;padding-top:13px;margin-top:15px;gap:10px;flex-wrap:wrap}
+.plan-ev{font-size:11px;color:#7c8aa5;line-height:1.8;border-top:1px dashed #1d2a42;margin-top:12px;padding-top:10px}
+.stock-avatar{width:40px;height:40px;border:1px solid #2b3f66;border-radius:10px;display:grid;place-items:center;color:#a6bdff;background:#1a2942;font-size:16px;font-weight:600;flex:none}
+.calc-result{background:rgba(78,161,255,.07);border:1px solid #2b3f66;padding:14px 16px;border-radius:9px;margin-top:15px;font-size:12px;line-height:2}
+.calc-result strong{font-size:19px;color:#7db9ff}
+.watch-btn{cursor:pointer;background:none;border:none;color:#5d6b85;font-size:15px;padding:2px 6px;font-family:inherit}
+.watch-btn.on{color:#f0b354}
+.audit-list{max-height:420px;overflow:auto;font-size:11.5px}
+.audit-item{padding:8px 0;border-bottom:1px solid #141d31;line-height:1.7;word-break:break-word}
+.audit-item time{color:#f0b354;font-family:ui-monospace,monospace;font-size:10.5px;margin-right:8px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}
 .progress{height:16px;background:#0d1522;border-radius:8px;overflow:hidden;border:1px solid #1d2a42}
 .progress .fill{height:100%;background:linear-gradient(90deg,#4ea1ff,#7db9ff);border-radius:8px;transition:width .4s}
 .progress-label{display:flex;justify-content:space-between;font-size:11.5px;color:#7c8aa5;margin-top:6px;gap:8px;flex-wrap:wrap}
@@ -220,13 +267,15 @@ tbody tr:hover{background:#121c31}
   </aside>
   <main id="main">
     <div class="topbar">
-      <h2 id="page-title">总览驾驶舱</h2>
+      <div><div class="eyebrow">ATS-S100 / INVESTMENT WORKSPACE</div><h2 id="page-title">总览驾驶舱</h2></div>
       <div class="ts">数据截至 <b>2026-10-19 15:00 收盘</b><span class="pill">静态基准</span><span id="feedBadge" class="feedbadge off">离线（静态数据）</span></div>
     </div>
     <div id="page"></div>
   </main>
   <nav id="bottomnav"></nav>
 </div>
+<div id="overlay"></div>
+<div id="toast"></div>
 <script>
 "use strict";
 const DATA = {
@@ -732,19 +781,19 @@ R.rdScan = function(){
 };
 R.research = function(){
   if(state.detail) return R.detail();
-  const tabs = [["all","全部"],["real","真实仓"],["sim","模拟仓"]];
+  const tabs = [["all","全部"],["real","真实仓"],["sim","模拟仓"],["watch","已关注"]];
   const tb = '<div class="tabs-mini">'+tabs.map(t=>'<div class="t'+(state.researchTab===t[0]?' active':'')+'" data-rt="'+t[0]+'">'+t[1]+'</div>').join("")+'</div>';
-  let list = DATA.holdings.filter(h=>state.researchTab==="all"||h.acct===state.researchTab);
+  let list = state.researchTab==="watch" ? DATA.holdings.filter(h=>Watch.has(h.code)) : DATA.holdings.filter(h=>state.researchTab==="all"||h.acct===state.researchTab);
   if(state.search) list = list.filter(h=>h.name.indexOf(state.search)>=0||h.code.indexOf(state.search)>=0);
   const staticChg = {300502:-2.15,601899:0.67,605117:1.83,601138:0.98,600183:-0.52};
   const rows = list.map(h=>{
     const q = DataFeed.quotes[h.code];
     const px = q ? q.price : h.price;
     const cg = q ? q.chg : (typeof h.chg==="number" ? h.chg : (staticChg[h.code]||0));
-    return '<tr class="clickrow" data-code="'+h.code+'" style="cursor:pointer"><td><b>'+h.name+'</b></td><td class="mono dim">'+h.code+'</td><td>'+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+'</td><td class="num">'+(h.qty?h.qty.toLocaleString()+" "+h.unit:"—")+'</td><td class="num">'+px.toFixed(px<10?3:2)+'</td><td class="num">'+chg(cg)+'</td></tr>';
+    return '<tr class="clickrow" data-code="'+h.code+'" style="cursor:pointer"><td><b>'+h.name+'</b></td><td class="mono dim">'+h.code+'</td><td>'+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+'</td><td class="num">'+(h.qty?h.qty.toLocaleString()+" "+h.unit:"—")+'</td><td class="num">'+px.toFixed(px<10?3:2)+'</td><td class="num">'+chg(cg)+'</td><td>'+(Scores.of(h.code)!==null?badge(Scores.of(h.code)+"/100","gold"):'<span class="dim">待验证</span>')+'</td><td><button class="watch-btn'+(Watch.has(h.code)?" on":"")+'" data-watch="'+h.code+'" title="关注/取消关注">'+(Watch.has(h.code)?"★":"☆")+'</button></td></tr>';
   }).join("");
   return '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div class="dim" style="font-size:12.5px;min-width:0">覆盖标的 '+list.length+' 只 · 数据截至 2026-10-19 15:00 收盘 · 点击行进入统一个股视图</div><div class="searchbox"><input id="searchInput" placeholder="搜索名称 / 代码" value="'+state.search+'"></div></div>'
-    +'<div class="card">'+tb+'<div class="tbl-scroll"><table><thead><tr><th>名称</th><th>代码</th><th>所属账户</th><th>持仓</th><th>现价</th><th>涨跌幅</th></tr></thead><tbody>'+(rows||'<tr><td colspan="6" class="dim" style="text-align:center;padding:24px">无匹配标的</td></tr>')+'</tbody></table></div></div>';
+    +'<div class="card">'+tb+'<div class="tbl-scroll"><table><thead><tr><th>名称</th><th>代码</th><th>所属账户</th><th>持仓</th><th>现价</th><th>涨跌幅</th><th>评分</th><th>关注</th></tr></thead><tbody>'+(rows||'<tr><td colspan="8" class="dim" style="text-align:center;padding:24px">无匹配标的</td></tr>')+'</tbody></table></div></div>';
 };
 
 R.klineGeneric = function(seed, endPrice){
@@ -809,13 +858,17 @@ R.genericDetail = function(h, b){
     +'<div class="note" style="margin-top:14px">当前估值与一致预期：待确认。预期差真实性硬校验通过前，不输出情景估值与目标价；估值百分位数据见「选股雷达 → 行业轮动」。</div>',
     '<div class="card"><h3>日K线（近60-90个交易日）<span class="watermark">'+(DataFeed.klines[h.code]&&DataFeed.klines[h.code].src==="live"?"东财实时":"模拟/缓存")+'</span></h3>'+R.stockKline(h, b)+'</div>'
     +'<div class="note" style="margin-top:12px">关键价位与买卖点标记：待确认（需历史行情接入后标定支撑/压力与失效价）。上图仅示意近期价格走势结构，请勿据此交易。</div>',
+    R.secCalcVal(h),
+    R.secCalcRisk(h),
     styleTab,
     '<div class="grid g2"><div class="card"><h3>未来催化剂</h3><ul style="list-style:none">'+b.cats.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="up">▲</span> '+c+'</li>').join("")+'</ul></div>'
     +'<div class="card"><h3>风险清单</h3><ul style="list-style:none">'+b.risks.map(c=>'<li style="margin:8px 0 8px 2px;line-height:1.7"><span class="down">▼</span> '+c+'</li>').join("")+'</ul></div></div>'
     +'<div class="note" style="margin-top:12px">催化剂与风险均来自公开信息与内部扫描记录，时间敏感；触发与否以公告与行情数据为准。</div>',
     '<div class="section-title" style="margin-top:4px">决策与交易时间线</div>'
     +'<div class="timeline">'+b.hist.map(x=>'<div class="tl-item"><div class="d">'+x.date+' · '+x.type+'</div><div class="t">'+escHtml(x.act)+'<br><span class="dim">'+escHtml(x.note)+'</span></div></div>').join("")+'</div>'
-    +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；无记录表示该标的尚无系统级操作，不代表无任何交易行为。</div>'
+    +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；无记录表示该标的尚无系统级操作，不代表无任何交易行为。</div>',
+    R.secScore(h),
+    R.secNotes(h)
   ];
 };
 
@@ -823,7 +876,7 @@ R.detail = function(){
   const h = DATA.holdings.filter(x=>x.code===state.detail)[0];
   if(!h) { state.detail=null; return R.research(); }
   const isZj = h.code==="601899";
-  const tabs = ["综合诊断","财务与盈利预测","估值与预期差","K线与买卖点","交易风格实验室","催化剂与风险","历史决策与交易记录"];
+  const tabs = ["综合诊断","财务与盈利预测","估值与预期差","K线与买卖点","估值情景计算器","风险预算计算器","交易风格实验室","催化剂与风险","历史决策与交易记录","评分与证据","研究笔记"];
   let body;
   let sections = null;
   const brief = DATA.stockBrief ? DATA.stockBrief[h.code] : null;
@@ -847,6 +900,8 @@ R.detail = function(){
       +'<div class="note" style="margin-top:14px">当前估值：'+d.valuation.curPE+'。'+d.valuation.note+'<br>预期差判断：'+d.valuation.diff+'</div>',
       '<div class="card"><h3>日K线（近60-90个交易日）<span class="watermark">'+(DataFeed.klines["601899"]&&DataFeed.klines["601899"].src==="live"?"东财实时":"模拟/缓存")+'</span></h3>'+R.zjKline()+'</div>'
       +'<div class="note" style="margin-top:12px">关键价位：支撑 ¥28.50（失效价/止损参考）· 压力 ¥30.20（突破跟随触发）· 回踩观察 ¥29.50。B/S 标记为真实/计划买卖点，仅作研究演示。</div>',
+      R.secCalcVal(h),
+      R.secCalcRisk(h),
       tableWrap('<table><thead><tr><th>风格</th><th>模拟累计收益</th><th>最大回撤</th><th>卖飞风险</th><th>说明</th></tr></thead><tbody>'
         +d.styleLab.map(s=>'<tr><td><b>'+s.style+'</b></td><td class="num up">'+s.ret+'</td><td class="num down">'+s.dd+'</td><td>'+badge(s.fly,s.fly==="低"?"green":(s.fly==="中"?"gold":"red"))+'</td><td class="dim" style="white-space:normal">'+s.note+'</td></tr>').join("")+'</tbody></table>')
       +'<div class="note" style="margin-top:12px">「卖飞风险」为风格实验室的专项计量：卖出后继续上涨造成的机会成本，按历史信号回放统计，用于在「落袋为安」与「让利润奔跑」之间定量取舍。</div>',
@@ -855,7 +910,9 @@ R.detail = function(){
       R.holdingSummary(h)
       +'<div class="section-title" style="margin-top:4px">决策与交易时间线</div>'
       +'<div class="timeline">'+d.history.map(x=>'<div class="tl-item"><div class="d">'+x.date+' · '+x.type+'</div><div class="t">'+x.act+'<br><span class="dim">'+x.note+'</span></div></div>').join("")+'</div>'
-      +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；复盘归档任务（15:35）每日核对更新。</div>'
+      +'<div class="note" style="margin-top:12px">以上为系统留痕的全部历史决策与成交记录；复盘归档任务（15:35）每日核对更新。</div>',
+      R.secScore(h),
+      R.secNotes(h)
     ];
     sections = bodies;
   } else if(brief){
@@ -872,7 +929,8 @@ R.detail = function(){
   const dq = DataFeed.quotes[h.code];
   const dpx = dq ? dq.price : h.price;
   const dchg = dq ? dq.chg : (typeof h.chg==="number" ? h.chg : (h.code==="601899" ? 0.67 : 0));
-  return '<div class="detail-head"><div><span class="backlink" id="backBtn">← 返回个股列表</span><div style="margin-top:8px"><span class="nm">'+h.name+'</span><span class="code mono">'+h.code+'</span> '+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+(isZj?" "+badge("深度档案","gold"):(brief?" "+badge("研究档案","blue"):""))+'</div></div>'
+  const scoreBadge = Scores.of(h.code)!==null ? badge("已评分 "+Scores.of(h.code)+"/100","gold") : badge("评分待验证","gray");
+  return '<div class="detail-head"><div><span class="backlink" id="backBtn">← 返回个股列表</span><div style="margin-top:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="stock-avatar">'+escHtml(h.name.charAt(0))+'</span><span><span class="nm">'+h.name+'</span><span class="code mono">'+h.code+'</span> '+(h.acct==="real"?badge("真实仓","red"):badge("模拟仓","blue"))+(isZj?" "+badge("深度档案","gold"):(brief?" "+badge("研究档案","blue"):""))+' '+scoreBadge+'</span><button class="watch-btn'+(Watch.has(h.code)?" on":"")+'" data-watch="'+h.code+'" title="关注/取消关注">'+(Watch.has(h.code)?"★":"☆")+'</button></div></div>'
     +'<div style="text-align:right"><div class="num" style="font-size:24px;font-weight:700">'+dpx.toFixed(2)+'</div><div class="num">'+chg(dchg)+'</div><div class="dim" style="font-size:11px;margin-top:4px">'+(dq?"实时行情 · 东方财富接口":"数据截至 2026-10-19 15:00 收盘")+'</div></div></div>'
     +body;
 };
@@ -970,7 +1028,9 @@ R.strategy = function(){
     return '<div class="card"><h3>硬校验 '+num+' · '+v.name+'</h3><div style="margin:6px 0">'+badge(v.status,"gold")+'</div><div class="dim" style="font-size:12px;line-height:1.7">'+v.note+'</div></div>';
   }).join("");
   const mas = DATA.masters.map(m=>'<div class="card"><h3>'+m.name+'</h3><div style="margin:6px 0">'+badge(m.status,m.status==="符合"?"red":(m.status==="可用"?"blue":"gold"))+'</div><div class="dim" style="font-size:12px;line-height:1.8">'+m.note+'</div></div>').join("");
-  return '<div class="note" style="margin-bottom:14px">ATS-S100 评分为六维加权百分制（盈利改善25 / 市场预期差25 / 估值与上涨空间20 / 价格与资金趋势15 / 未来催化剂10 / 财务与治理质量5）。未经验证的维度一律显示「待评分/待确认」，系统不提供伪精确分数。</div>'
+  const scored = Object.keys(Scores.data).filter(c=>Scores.of(c)!==null);
+  return '<div class="note" style="margin-bottom:14px">已人工评分标的（'+(scored.length||"暂无")+(scored.length?"："+scored.map(c=>{const hh=findHolding(c);return (hh?hh.name:c)+" "+Scores.of(c)+"/100";}).join(" · "):"")+'）· 缺项不生成总分，不自动补分；评分入口在个股详情页「评分与证据」节。</div>'
+    +'<div class="note" style="margin-bottom:14px">ATS-S100 评分为六维加权百分制（盈利改善25 / 市场预期差25 / 估值与上涨空间20 / 价格与资金趋势15 / 未来催化剂10 / 财务与治理质量5）。未经验证的维度一律显示「待评分/待确认」，系统不提供伪精确分数。</div>'
     +'<div class="grid g2"><div class="card"><h3>六维权重环 <span class="watermark">权重为定值 · 分数待评</span></h3>'
     +'<div class="donut-wrap"><svg viewBox="0 0 170 170" style="width:170px;height:170px">'+donut+'<text x="85" y="80" fill="#f0b354" font-size="16" text-anchor="middle" font-weight="bold">待评分</text><text x="85" y="98" fill="#7c8aa5" font-size="10" text-anchor="middle">总分 / 100</text></svg>'
     +'<div class="legend">'+legend+'</div></div>'
@@ -990,28 +1050,21 @@ R.simLedger = function(){
 };
 
 R.trade = function(){
-  const p = DATA.pipelineSample;
-  const stages = [
-    {n:"计划", d:p.plan, cls:"done"},
-    {n:"触发", d:p.trigger, cls:"done"},
-    {n:"委托", d:p.order, cls:"cur"},
-    {n:"成交", d:p.fill, cls:"wait"},
-    {n:"复盘", d:p.review, cls:"wait"}
-  ];
-  const pipe = '<div class="pipeline">'+stages.map(s=>'<div class="pstage '+s.cls+'"><div class="st">'+s.n+'</div><div class="desc">'+s.d+'</div></div>').join("")+'</div>';
+  const sorted = Plans.list.slice().sort((a,b)=>((a.cancelled?1:0)-(b.cancelled?1:0)) || (a.id<b.id?1:-1));
+  const cards = sorted.map(R.planCard).join("");
   const attr = '<div class="attr-grid">'
     +'<div class="attr-item"><div class="k">选股来源</div><div class="v">机会股票池（中期1-6月）</div></div>'
     +'<div class="attr-item"><div class="k">市场阶段</div><div class="v">温斯坦第二阶段 · 情绪42偏谨慎</div></div>'
     +'<div class="attr-item"><div class="k">入场策略</div><div class="v">回踩低吸 + 突破跟随双触发</div></div>'
     +'<div class="attr-item"><div class="k">入场依据</div><div class="v">盈利上修 + RS前三 + 铜价新高</div></div>'
-    +'<div class="attr-item"><div class="k">数量</div><div class="v">300股（两笔：100+200）</div></div>'
-    +'<div class="attr-item"><div class="k">退出规则</div><div class="v">跌破28.50失效价离场；30.20上方移动止盈</div></div>'
-    +'<div class="attr-item"><div class="k">结果</div><div class="v">待成交 / 待复盘</div></div>'
-    +'<div class="attr-item"><div class="k">归因状态</div><div class="v">已建档 · 复盘时补全</div></div></div>';
+    +'<div class="attr-item"><div class="k">数量</div><div class="v">100 股整数倍，风险预算约束</div></div>'
+    +'<div class="attr-item"><div class="k">退出规则</div><div class="v">跌破失效观察价离场；目标区移动止盈</div></div>'
+    +'<div class="attr-item"><div class="k">结果</div><div class="v">成交后须复盘归档才闭环</div></div>'
+    +'<div class="attr-item"><div class="k">归因状态</div><div class="v">每步强制填写可核实依据并留痕审计</div></div></div>';
   const condRows = DATA.condOrders.map(c=>'<tr><td><b>'+c.name+'</b> <span class="dim mono">'+c.code+'</span></td><td>'+c.type+'</td><td class="num">'+c.cond+'</td><td class="num">'+c.qty+'</td><td>'+badge(c.status,"blue")+'</td><td class="num dim">'+c.created+'</td></tr>').join("");
-  return '<div class="section-title" style="margin-top:16px">交易状态机 · 示例订单：'+p.name+'</div>'
-    +'<div class="card">'+pipe
-    +'<div style="margin-top:14px;font-size:12px;color:#7c8aa5">状态流转：计划（盘前生成）→ 触发（行情条件满足）→ 委托（按当时可验证价格下单）→ 成交（撮合确认）→ 复盘（归因归档）。当前示例订单处于「委托」阶段。</div></div>'
+  return '<div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 12px;gap:10px;flex-wrap:wrap"><div class="section-title" style="margin:0">AI 模拟交易计划</div><button class="btn2 primary" data-plan-act="new">+ 新建计划</button></div>'
+    + (cards || '<div class="card"><div class="empty-state"><div class="big">暂无计划</div><div>点击右上角「新建计划」创建第一条 AI 模拟交易计划。</div></div></div>')
+    + '<div class="note" style="margin:14px 0">状态机：计划 → 触发 → 委托 → 成交 → 复盘。每步须填可核实依据；「录入成交」入账 AI 模拟账本并联动现金/持仓（校验 T+1 可卖、100 股整数倍、现金不足拒绝）；计划与审计记录存于本机浏览器，刷新不丢。</div>'
     +'<div class="section-title">交易归因字段（每笔交易强制建档）</div><div class="card">'+attr+'</div>'
     +'<div class="section-title">条件单列表</div>'
     +tableWrap('<table><thead><tr><th>标的</th><th>类型</th><th>触发条件</th><th>数量</th><th>状态</th><th>创建时间</th></tr></thead><tbody>'+condRows+'</tbody></table>')
@@ -1081,6 +1134,18 @@ R.system = function(){
     +'<div class="card"><div style="display:flex;gap:24px;align-items:center"><div><div class="num" style="font-size:30px;font-weight:800;color:#4ea1ff">'+v.ver+'</div><div class="dim" style="font-size:11.5px;margin-top:4px">build '+v.build+'</div></div>'
     +'<div style="flex:1"><div class="dim" style="font-size:12px;line-height:1.8">策略规则版本化：'+v.note+'</div></div></div></div>'
     +'<div class="card" style="margin-top:12px"><h3>离线说明</h3><div class="dim" style="font-size:12px;line-height:1.8">本页面为完全离线的静态原型：无任何网络请求、无外部依赖，全部数据以静态 Mock 形式内嵌于单文件，仅用于产品形态与信息架构验证。</div></div>'
+    +'<div class="card" style="margin-top:12px"><h3>数据管理</h3><div style="font-size:12px;color:#a9b7d0;line-height:1.9">计划 / 笔记 / 评分 / 审计 / 净值历史 / 模拟账本 / 关注列表，全部仅存本机浏览器（localStorage）。建议定期导出备份。</div>'
+    +'<div class="toolbar" style="margin-top:12px">'
+    +'<button class="btn2 primary" data-export-json>导出备份 JSON</button>'
+    +'<button class="btn2" data-import-json>导入备份…</button>'
+    +'<button class="btn2" data-export-csv-real>真实成交 CSV</button>'
+    +'<button class="btn2" data-export-csv-sim>模拟成交 CSV</button>'
+    +'<input type="file" id="importFile" accept="application/json,.json" style="display:none">'
+    +'</div></div>'
+    +'<div class="section-title">审计日志（最近 '+(Audit.list.length)+' 条）</div>'
+    +'<div class="card"><div class="audit-list">'
+    +((()=>{ const items=Audit.list.slice(-80).reverse(); return items.length?items.map(a=>'<div class="audit-item"><time>'+escHtml(String(a.at).replace("T"," ").slice(0,19))+'</time>'+escHtml(a.text)+'</div>').join(""):'<div class="dim" style="padding:20px;text-align:center">暂无操作记录</div>'; })())
+    +'</div></div>'
     +'</div></div>';
 };
 
@@ -1427,22 +1492,29 @@ const Agent = {
         const q = DataFeed.quotes[h.code];
         const price = (a.price!==undefined && isFinite(Number(a.price))) ? Number(a.price) : (q ? q.price : h.price);
         if(!isFinite(price) || price<=0) throw new Error("价格无效");
-        DATA.sim.pos = DATA.sim.pos || {}; DATA.sim.tradeLog = DATA.sim.tradeLog || [];
+        DATA.sim.pos = DATA.sim.pos || {}; DATA.sim.tradeLog = DATA.sim.tradeLog || []; DATA.sim.lots = DATA.sim.lots || {};
+        const day0 = todayStr();
         if(side==="buy"){
           const cost = qty*price;
           if(cost > DATA.sim.cash + 1e-6) throw new Error("模拟仓现金不足：需 "+fmt(cost)+"，可用 "+fmt(DATA.sim.cash));
           DATA.sim.cash = Math.round((DATA.sim.cash - cost)*100)/100;
           DATA.sim.pos[h.code] = (DATA.sim.pos[h.code]||0) + qty;
+          (DATA.sim.lots[h.code]=DATA.sim.lots[h.code]||[]).push({d:day0, qty:qty});
         } else {
-          const have = DATA.sim.pos[h.code]||0;
-          if(have < qty) throw new Error("模拟仓持仓不足：持有 "+have+" 股，无法卖出 "+qty+" 股");
-          DATA.sim.pos[h.code] = have - qty;
-          if(DATA.sim.pos[h.code]===0) delete DATA.sim.pos[h.code];
+          const avail0 = (DATA.sim.lots[h.code]||[]).filter(l=>l.d<day0).reduce((v,l)=>v+l.qty,0);
+          if(avail0 < qty) throw new Error("可卖数量不足（T+1：当日买入不可当日卖出；当前可卖 "+avail0+" 股）");
+          DATA.sim.pos[h.code] = (DATA.sim.pos[h.code]||0) - qty;
+          if(DATA.sim.pos[h.code]<=0) delete DATA.sim.pos[h.code];
+          let rem0 = qty;
+          (DATA.sim.lots[h.code]||[]).forEach(lot=>{ if(lot.d<day0&&rem0>0){ const take=Math.min(rem0,lot.qty); lot.qty-=take; rem0-=take; } });
+          DATA.sim.lots[h.code] = (DATA.sim.lots[h.code]||[]).filter(l=>l.qty>0);
           DATA.sim.cash = Math.round((DATA.sim.cash + qty*price)*100)/100;
         }
         DATA.sim.trades = (DATA.sim.trades||0) + 1;
         const d = new Date();
         DATA.sim.tradeLog.unshift({time: todayStr()+" "+d.toTimeString().slice(0,8), side: side, name: h.name, code: h.code, qty: qty, price: price, amount: Math.round(qty*price*100)/100});
+        SimStore.save();
+        Audit.add("Agent 模拟"+(side==="buy"?"买入":"卖出")+" "+h.name+" "+qty+" 股 @"+price);
         return {ok:true, msg:"已模拟"+(side==="buy"?"买入":"卖出")+" "+h.name+" "+qty.toLocaleString()+" 股 @"+price.toFixed(2)+"（"+fmt(qty*price)+"）"};
       }
       case "pushEquity": {
@@ -1700,6 +1772,556 @@ const Agent = {
 };
 state.agentMode = store("ats_agent_mode") || "local";
 
+const Persist = {
+  read: function(key, def){ try{ const raw=store(key); if(raw===null||raw===undefined) return def; const v=JSON.parse(raw); return (v===null||v===undefined)?def:v; }catch(e){ return def; } },
+  write: function(key, val){ try{ store(key, JSON.stringify(val)); return true; }catch(e){ try{ if(typeof UI!=="undefined"&&UI&&UI.toast) UI.toast("本地存储不可用，改动仅本次有效"); }catch(_){} return false; } }
+};
+
+const UI = {
+  toastTimer: null,
+  modalFocus: null,
+  _planId: null,
+  toast: function(msg){
+    let el = document.getElementById("toast");
+    if(!el){ el=document.createElement("div"); el.id="toast"; el.className="toast"; if(document.body) document.body.appendChild(el); }
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(UI.toastTimer);
+    UI.toastTimer = setTimeout(function(){ el.classList.remove("show"); }, 4200);
+  },
+  modal: function(title, bodyHtml, sub){
+    const ov = document.getElementById("overlay");
+    if(!ov) return;
+    try{ UI.modalFocus = document.activeElement||null; }catch(e){ UI.modalFocus=null; }
+    ov.innerHTML = '<div class="modal-mask" data-modal-mask><section class="modal" role="dialog" aria-modal="true" tabindex="-1"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2>'+title+'</h2><button class="close-x" data-modal-close aria-label="关闭">×</button></div>'
+      + (sub?'<div class="modal-sub">'+sub+'</div>':'') + bodyHtml + '</section></div>';
+    const m = ov.querySelector(".modal");
+    if(m && typeof m.focus==="function"){ try{ m.focus(); }catch(e){} }
+  },
+  closeModal: function(){
+    const ov = document.getElementById("overlay");
+    if(ov) ov.innerHTML = "";
+    if(UI.modalFocus && typeof UI.modalFocus.focus==="function"){ try{ UI.modalFocus.focus(); }catch(e){} }
+    UI.modalFocus = null;
+  }
+};
+
+const Audit = {
+  list: Persist.read("ats_audit", []),
+  add: function(text){
+    Audit.list.push({at:new Date().toISOString(), text:String(text).slice(0,300)});
+    if(Audit.list.length>500) Audit.list = Audit.list.slice(-500);
+    Persist.write("ats_audit", Audit.list);
+  }
+};
+
+const SimStore = {
+  load: function(){
+    const s = Persist.read("ats_sim", null);
+    if(s && typeof s==="object"){
+      if(isFinite(s.cash)) DATA.sim.cash = s.cash;
+      DATA.sim.pos = s.pos||{}; DATA.sim.trades = s.trades||0; DATA.sim.tradeLog = s.tradeLog||[]; DATA.sim.lots = s.lots||{};
+    }
+    DATA.sim.lots = DATA.sim.lots||{};
+  },
+  save: function(){ Persist.write("ats_sim", {cash:DATA.sim.cash, pos:DATA.sim.pos, trades:DATA.sim.trades, tradeLog:DATA.sim.tradeLog, lots:DATA.sim.lots}); }
+};
+
+const STAGES = ["计划","触发","委托","成交","复盘"];
+const Plans = {
+  list: null,
+  load: function(){
+    Plans.list = Persist.read("ats_plans_v1", null);
+    if(!Array.isArray(Plans.list)){
+      Plans.list = [
+        {id:"PLAN-0001", code:"601899", side:"buy", qty:1000, date:"2026-10-20", low:29.50, high:30.20, stop:28.50, reason:"盈利预测上修 + 行业RS前三 + 铜价新高，中期框架候选", source:"AI选股扫描 2026-10-19", trigger:"回踩 29.50±0.10 缩量企稳低吸，或放量突破 30.20 跟随", cancel:"跌破失效观察价 28.50；或有效日期届满条件未达成", stage:0, cancelled:false, evidence:[{at:"2026-10-19T15:40:00", stage:0, text:"计划创建：AI扫描入选中期机会股票池后建档"}], created:"2026-10-19"},
+        {id:"PLAN-0002", code:"605117", side:"buy", qty:300, date:"2026-10-20", low:70.80, high:73.50, stop:67.90, reason:"放量突破平台 + 储能出海订单高增，短线触发式候选", source:"AI选股扫描 2026-10-19", trigger:"突破 71.50 且成交额较 5 日均值放大 50% 以上", cancel:"跌回 70.80 平台内视为假突破；突破后 3 日未站稳 71.50", stage:0, cancelled:false, evidence:[{at:"2026-10-19T15:40:00", stage:0, text:"计划创建：突破跟随试仓思路的模拟版"}], created:"2026-10-19"}
+      ];
+      Plans.save();
+    }
+  },
+  save: function(){ Persist.write("ats_plans_v1", Plans.list); },
+  find: function(id){ return Plans.list.filter(p=>p.id===id)[0]; },
+  validateNew: function(d){
+    if(!findHolding(d.code)) return "请选择标的";
+    if(d.side!=="buy" && d.side!=="sell") return "方向无效";
+    const q=Number(d.qty);
+    if(!Number.isInteger(q)||q<=0||q%100!==0) return "数量须为 100 的整数倍";
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(d.date||"")) return "有效日期格式应为 YYYY-MM-DD";
+    const low=+d.low, high=+d.high, stop=+d.stop;
+    if(!(low>0)||!(high>=low)||!(stop>0)) return "计划区间或失效观察价无效";
+    if(!String(d.reason||"").trim()||!String(d.trigger||"").trim()||!String(d.cancel||"").trim()) return "研究理由、触发条件、取消条件均为必填";
+    return null;
+  },
+  create: function(d){
+    const err = Plans.validateNew(d);
+    if(err) throw new Error(err);
+    const id = "PLAN-"+String(Plans.list.length+1).padStart(4,"0");
+    const plan = {id:id, code:d.code, side:d.side, qty:Math.round(+d.qty), date:d.date, low:+d.low, high:+d.high, stop:+d.stop,
+      reason:String(d.reason).trim(), source:"手工创建 "+todayStr(), trigger:String(d.trigger).trim(), cancel:String(d.cancel).trim(),
+      stage:0, cancelled:false, evidence:[{at:new Date().toISOString(), stage:0, text:"计划创建："+String(d.reason).trim()}], created:todayStr()};
+    Plans.list.unshift(plan);
+    Plans.save();
+    Audit.add("新建模拟计划 "+id+" "+findHolding(d.code).name+" "+(d.side==="buy"?"买入":"卖出")+" "+plan.qty+" 股，有效 "+d.date);
+    return plan;
+  },
+  advance: function(id, text){
+    const p = Plans.find(id);
+    if(!p) throw new Error("计划不存在");
+    if(p.cancelled) throw new Error("计划已取消");
+    if(p.stage>=2) throw new Error("该阶段请使用「录入成交」或「复盘归档」");
+    if(!String(text||"").trim()) throw new Error("请填写核验依据");
+    p.stage++;
+    p.evidence.push({at:new Date().toISOString(), stage:p.stage, text:String(text).trim().slice(0,500)});
+    Plans.save();
+    Audit.add(p.id+" → "+STAGES[p.stage]+"："+String(text).trim().slice(0,120));
+    return p;
+  },
+  review: function(id, text){
+    const p = Plans.find(id);
+    if(!p||p.cancelled) throw new Error("计划不存在或已取消");
+    if(p.stage!==3) throw new Error("仅已成交计划可复盘");
+    if(!String(text||"").trim()) throw new Error("请填写复盘内容");
+    p.stage = 4;
+    p.evidence.push({at:new Date().toISOString(), stage:4, text:String(text).trim().slice(0,1000)});
+    Plans.save();
+    Audit.add(p.id+" → 复盘："+String(text).trim().slice(0,150));
+    return p;
+  },
+  cancel: function(id){
+    const p = Plans.find(id);
+    if(!p) throw new Error("计划不存在");
+    if(p.stage>=3) throw new Error("已成交计划不可取消");
+    p.cancelled = true;
+    Plans.save();
+    Audit.add("取消计划 "+p.id+"（"+STAGES[p.stage]+" 阶段）");
+    return p;
+  },
+  availableQty: function(code, atDate){
+    return (DATA.sim.lots[code]||[]).filter(l=>l.d<atDate).reduce((v,l)=>v+l.qty,0);
+  },
+  validateFill: function(p, f){
+    if(!p||p.cancelled) return "计划不存在或已取消";
+    if(p.stage!==2) return "须先完成触发核验并记录模拟委托";
+    if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(f.at||"")||Number.isNaN(Date.parse(f.at))) return "成交时间无效（格式 YYYY-MM-DDTHH:MM）";
+    if(String(f.at).slice(0,10)!==p.date) return "成交日期须与计划有效日期一致（"+p.date+"）";
+    const price=+f.price;
+    if(!(price>0)) return "成交价格必须大于 0";
+    const qty=+f.qty;
+    if(!Number.isInteger(qty)||qty<=0||qty%100!==0) return "成交数量须为 100 的整数倍";
+    if(qty!==p.qty) return "本版每个计划一次全量核验，成交数量须等于计划数量 "+p.qty;
+    const fee=+f.fee;
+    if(!(fee>=0)) return "费用须为非负数";
+    if(!String(f.evidence||"").trim()||!String(f.reason||"").trim()) return "成交依据与理由均为必填";
+    const amount = price*qty;
+    if(p.side==="buy"){
+      if(amount+fee>DATA.sim.cash+1e-6) return "AI模拟仓现金不足：需 "+fmt(amount+fee)+"，可用 "+fmt(DATA.sim.cash);
+    } else {
+      const avail = Plans.availableQty(p.code, String(f.at).slice(0,10));
+      if(avail<qty) return "可卖数量不足（T+1：当日买入不可当日卖出；当前可卖 "+avail+" 股）";
+      if(fee>amount) return "卖出费用不得超过成交金额";
+    }
+    return null;
+  },
+  fill: function(id, f){
+    const p = Plans.find(id);
+    const err = Plans.validateFill(p, f);
+    if(err) throw new Error(err);
+    const h = findHolding(p.code);
+    const price=+f.price, qty=Math.round(+f.qty), fee=+f.fee;
+    const amount = Math.round(price*qty*100)/100;
+    const day = String(f.at).slice(0,10);
+    DATA.sim.pos = DATA.sim.pos||{}; DATA.sim.lots = DATA.sim.lots||{}; DATA.sim.tradeLog = DATA.sim.tradeLog||[];
+    if(p.side==="buy"){
+      DATA.sim.cash = Math.round((DATA.sim.cash-amount-fee)*100)/100;
+      DATA.sim.pos[p.code] = (DATA.sim.pos[p.code]||0)+qty;
+      (DATA.sim.lots[p.code]=DATA.sim.lots[p.code]||[]).push({d:day, qty:qty});
+    } else {
+      DATA.sim.cash = Math.round((DATA.sim.cash+amount-fee)*100)/100;
+      DATA.sim.pos[p.code] = (DATA.sim.pos[p.code]||0)-qty;
+      if(DATA.sim.pos[p.code]<=0) delete DATA.sim.pos[p.code];
+      let rem = qty;
+      (DATA.sim.lots[p.code]||[]).forEach(lot=>{ if(lot.d<day&&rem>0){ const take=Math.min(rem,lot.qty); lot.qty-=take; rem-=take; } });
+      DATA.sim.lots[p.code] = (DATA.sim.lots[p.code]||[]).filter(l=>l.qty>0);
+    }
+    DATA.sim.trades = (DATA.sim.trades||0)+1;
+    const tid = "SIM-"+String(DATA.sim.trades).padStart(4,"0");
+    DATA.sim.tradeLog.unshift({time:day+" "+String(f.at).slice(11,16), side:p.side, name:h.name, code:p.code, qty:qty, price:price, amount:amount});
+    p.stage = 3;
+    p.fillId = tid;
+    p.fill = {price:price, qty:qty, fee:fee, at:f.at};
+    p.evidence.push({at:new Date().toISOString(), stage:3, text:"成交 "+tid+"："+qty+" 股 @"+price+"，费用 "+fee+"。依据："+String(f.evidence).trim().slice(0,300)});
+    Plans.save();
+    SimStore.save();
+    Audit.add("追加已核验模拟成交 "+tid+" "+h.name+" "+qty+" 股 @"+price+"（费 "+fee+"）；依据："+String(f.evidence).trim().slice(0,100));
+    return tid;
+  }
+};
+Plans.load();
+SimStore.load();
+
+const Scores = {
+  data: Persist.read("ats_scores", {}),
+  of: function(code){
+    const r = Scores.data[code];
+    if(!r||!Array.isArray(r.scores)||r.scores.length!==6) return null;
+    if(r.scores.some(v=>v===null||v===undefined||v==="")) return null;
+    return r.scores.reduce((a,b)=>a+Number(b),0);
+  },
+  save: function(code, scores, evidence, at){
+    if(!Array.isArray(scores)||scores.length!==6) throw new Error("六维分数缺失");
+    scores.forEach((v,i)=>{
+      const n = Number(v);
+      if(v===""||v===null||v===undefined||!Number.isInteger(n)||n<0||n>DATA.dims[i].wt) throw new Error(DATA.dims[i].name+" 得分须为 0~"+DATA.dims[i].wt+" 的整数（留空不生成总分）");
+    });
+    if(!String(evidence||"").trim()) throw new Error("必须填写证据来源");
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(at||"")) throw new Error("必须填写证据日期（YYYY-MM-DD）");
+    Scores.data[code] = {scores:scores.map(Number), evidence:String(evidence).trim().slice(0,500), at:at};
+    Persist.write("ats_scores", Scores.data);
+    Audit.add("人工评分 "+code+"："+scores.join("/")+"（合计 "+scores.reduce((a,b)=>a+Number(b),0)+"/100），证据 "+at+" "+String(evidence).trim().slice(0,80));
+  }
+};
+
+const Notes = {
+  data: Persist.read("ats_notes", {}),
+  save: function(code, text){
+    Notes.data[code] = String(text||"").slice(0,20000);
+    Persist.write("ats_notes", Notes.data);
+    Audit.add("更新研究笔记 "+code+"（"+String(text||"").length+" 字）");
+  }
+};
+
+const Watch = {
+  data: Persist.read("ats_watch", []),
+  has: function(code){ return Watch.data.indexOf(code)>=0; },
+  toggle: function(code){
+    const i = Watch.data.indexOf(code);
+    if(i>=0) Watch.data.splice(i,1); else Watch.data.push(code);
+    Persist.write("ats_watch", Watch.data);
+    Audit.add((i>=0?"取消关注 ":"关注 ")+code);
+    if(typeof render==="function") render();
+  }
+};
+
+const Calc = { val:{}, risk:{} };
+Calc.valuation = function(code, d){
+  const ref=+d.ref, eps=+d.eps, pes=[+d.pe1,+d.pe2,+d.pe3];
+  if(!(ref>0)||!(eps>0)) throw new Error("参考价与假设 EPS 须为正数");
+  if(!pes.every(x=>x>0)) throw new Error("三档 PE 须为正数");
+  const targets = pes.map(pe=>Math.round(eps*pe*100)/100);
+  Calc.val[code] = {ref:ref, eps:eps, pes:pes, src:String(d.src||"").trim(), targets:targets, at:todayStr()};
+  Audit.add("估值情景计算 "+code+"：EPS "+eps+" × PE "+pes.join("/")+" → "+targets.join("/")+"（仅假设计算）");
+};
+Calc.risk = function(code, d){
+  const equity=+d.equity, budget=+d.budget, entry=+d.entry, stop=+d.stop, cash=+d.cash, fee=+d.fee;
+  if(!(equity>0)||!(budget>0)) throw new Error("账户净值与单笔风险%须为正数");
+  if(!(entry>stop)||!(stop>0)) throw new Error("入场价必须大于失效价，且失效价为正");
+  if(!(cash>=0)||!(fee>=0)) throw new Error("可用现金与费用不能为负");
+  const byRisk = Math.floor((equity*budget/100)/(entry-stop)/100)*100;
+  const byCash = Math.floor(Math.max(0,cash-fee)/entry/100)*100;
+  const qty = Math.max(0, Math.min(byRisk, byCash));
+  Calc.risk[code] = {equity:equity, budget:budget, entry:entry, stop:stop, cash:cash, fee:fee, qty:qty,
+    riskAmt:Math.round(qty*(entry-stop)*100)/100, budgetAmt:Math.round(equity*budget/100*100)/100,
+    amount:Math.round((qty*entry+fee)*100)/100, at:todayStr()};
+  Audit.add("风险预算计算 "+code+"：建议 "+qty+" 股（风险预算 ¥"+Calc.risk[code].budgetAmt.toFixed(2)+"）");
+};
+
+const Backup = {
+  collect: function(){
+    return {version:1, exportedAt:new Date().toISOString(), plans:Plans.list, notes:Notes.data, scores:Scores.data,
+      audit:Audit.list, equityHistory:DATA.equityHistory,
+      sim:{cash:DATA.sim.cash, pos:DATA.sim.pos, trades:DATA.sim.trades, tradeLog:DATA.sim.tradeLog, lots:DATA.sim.lots},
+      watch:Watch.data};
+  },
+  validate: function(x){
+    if(!x||x.version!==1) throw new Error("不是本系统备份文件（version 不符）");
+    if(!Array.isArray(x.plans)||!x.notes||typeof x.notes!=="object"||!x.scores||typeof x.scores!=="object"||!Array.isArray(x.audit)) throw new Error("备份结构缺失 plans/notes/scores/audit");
+    if(!x.equityHistory||!Array.isArray(x.equityHistory.sim)||!Array.isArray(x.equityHistory.real)) throw new Error("净值历史缺失或损坏");
+    if(!x.sim||!(x.sim.cash>=0)) throw new Error("模拟账本数据无效");
+    if(x.plans.some(p=>!p||typeof p.id!=="string"||!findHolding(p.code)||!Number.isInteger(p.stage)||p.stage<0||p.stage>4)) throw new Error("计划数据无效");
+    return x;
+  },
+  apply: function(x){
+    Plans.list = x.plans; Plans.save();
+    Notes.data = x.notes; Persist.write("ats_notes", Notes.data);
+    Scores.data = x.scores; Persist.write("ats_scores", Scores.data);
+    Audit.list = x.audit; Persist.write("ats_audit", Audit.list);
+    Watch.data = Array.isArray(x.watch)?x.watch:[]; Persist.write("ats_watch", Watch.data);
+    DATA.equityHistory = x.equityHistory;
+    DATA.sim.cash = x.sim.cash; DATA.sim.pos = x.sim.pos||{}; DATA.sim.trades = x.sim.trades||0;
+    DATA.sim.tradeLog = x.sim.tradeLog||[]; DATA.sim.lots = x.sim.lots||{};
+    SimStore.save();
+    Audit.add("导入备份（计划 "+x.plans.length+" 条 / 审计 "+x.audit.length+" 条 / 导出时间 "+String(x.exportedAt).slice(0,19)+"）");
+  },
+  download: function(name, text, mime){
+    try{
+      const blob = new Blob([text], {type:mime||"application/json"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ try{ URL.revokeObjectURL(a.href); }catch(e){} if(a.remove) a.remove(); }, 500);
+    }catch(e){ UI.toast("当前环境不支持文件下载"); }
+  },
+  exportJson: function(){
+    Backup.download("ats-s100-backup-"+todayStr()+".json", JSON.stringify(Backup.collect(), null, 2));
+    Audit.add("导出备份 JSON");
+    UI.toast("备份 JSON 已导出");
+  },
+  importFile: function(input){
+    const file = input && input.files && input.files[0];
+    if(!file||typeof FileReader!=="function") return;
+    const reader = new FileReader();
+    reader.onload = function(){
+      try{
+        const x = Backup.validate(JSON.parse(String(reader.result)));
+        Backup.apply(x);
+        UI.toast("备份已导入并生效");
+        if(typeof render==="function") render();
+      }catch(e){ UI.toast("导入失败："+(e&&e.message?e.message:e)); }
+    };
+    reader.readAsText(file);
+  },
+  csv: function(rows){ return rows.map(r=>r.map(c=>'"'+String(c===null||c===undefined?"":c).replace(/"/g,'""')+'"').join(",")).join("\r\n"); },
+  exportCsvReal: function(){
+    const rows = [["日期","时间","方向","代码","名称","数量","价格"]].concat(DATA.fills1019.map(f=>["2026-10-19",f.time,f.op,f.code,f.name,f.qty,f.price]));
+    Backup.download("ats-real-fills-"+todayStr()+".csv", "\ufeff"+Backup.csv(rows), "text/csv");
+    Audit.add("导出真实成交 CSV（"+DATA.fills1019.length+" 条）");
+    UI.toast("真实成交 CSV 已导出");
+  },
+  exportCsvSim: function(){
+    const tl = DATA.sim.tradeLog||[];
+    const rows = [["时间","方向","代码","名称","数量","价格","金额"]].concat(tl.map(t=>[t.time, t.side==="buy"?"买入":"卖出", t.code, t.name, t.qty, t.price, t.amount]));
+    Backup.download("ats-sim-fills-"+todayStr()+".csv", "\ufeff"+Backup.csv(rows), "text/csv");
+    Audit.add("导出模拟成交 CSV（"+tl.length+" 条）");
+    UI.toast("模拟成交 CSV 已导出");
+  }
+};
+
+function modalNewPlan(){
+  const opts = DATA.holdings.map(h=>'<option value="'+h.code+'">'+h.name+' · '+h.code+'</option>').join("");
+  UI.modal("新建 AI 模拟计划",
+    '<div class="modal-sub">创建计划不会生成成交；需依次核验触发、记录委托、录入已核验成交后才入账 AI 模拟账本。</div>'
+    +'<form id="plan-new-form"><div class="form-grid">'
+    +'<div class="field"><label>标的</label><select id="plan-code">'+opts+'</select></div>'
+    +'<div class="field"><label>方向</label><select id="plan-side"><option value="buy">模拟买入</option><option value="sell">模拟卖出</option></select></div>'
+    +'<div class="field"><label>目标数量（100 的整数倍）</label><input id="plan-qty" type="number" min="100" step="100" required></div>'
+    +'<div class="field"><label>有效日期</label><input id="plan-date" type="date" value="'+todayStr()+'" required></div>'
+    +'<div class="field"><label>计划区间下限</label><input id="plan-low" type="number" min="0.001" step="any" required></div>'
+    +'<div class="field"><label>计划区间上限</label><input id="plan-high" type="number" min="0.001" step="any" required></div>'
+    +'<div class="field"><label>失效观察价</label><input id="plan-stop" type="number" min="0.001" step="any" required></div>'
+    +'<div class="field full"><label>研究理由与来源</label><input id="plan-reason" required></div>'
+    +'<div class="field full"><label>触发条件</label><textarea id="plan-trigger" required></textarea></div>'
+    +'<div class="field full"><label>取消 / 失效条件</label><textarea id="plan-cancel" required></textarea></div>'
+    +'</div><div class="modal-actions"><button type="button" class="btn2" data-modal-close>取消</button><button type="submit" class="btn2 primary">保存模拟计划</button></div></form>');
+}
+function modalAdvance(id){
+  const p = Plans.find(id);
+  UI._planId = id;
+  UI.modal((p.stage===0?"核验触发条件":"记录模拟委托")+" · "+findHolding(p.code).name,
+    '<div class="modal-sub">'+(p.stage===0?"需要可核实的时间、报价、量价与条件依据；触及价格区间本身不代表全部条件成立。":"记录模拟委托的时间、数量与依据；此步骤仍不记为成交。")+'</div>'
+    +'<form id="plan-advance-form"><div class="field"><label>核验依据（含时间与数据来源）</label><textarea id="stage-evidence" required></textarea></div>'
+    +'<div class="modal-actions"><button type="button" class="btn2" data-modal-close>取消</button><button type="submit" class="btn2 primary">保存并推进到「'+STAGES[p.stage+1]+'」</button></div></form>');
+}
+function modalReview(id){
+  const p = Plans.find(id);
+  UI._planId = id;
+  UI.modal("交易复盘 · "+findHolding(p.code).name,
+    '<div class="modal-sub">记录判断与实际执行的差异、结果与改进；复盘归档后计划闭环。</div>'
+    +'<form id="plan-review-form"><div class="field"><label>复盘内容</label><textarea id="stage-evidence" required></textarea></div>'
+    +'<div class="modal-actions"><button type="button" class="btn2" data-modal-close>取消</button><button type="submit" class="btn2 primary">归档复盘</button></div></form>');
+}
+function modalFill(id){
+  const p = Plans.find(id);
+  UI._planId = id;
+  UI.modal("录入已核验成交 · "+findHolding(p.code).name,
+    '<div class="modal-sub">成交将进入 AI 模拟账本并联动现金/持仓（校验 T+1 可卖、100 股整数倍、现金不足拒绝）。</div>'
+    +'<form id="plan-fill-form"><div class="form-grid">'
+    +'<div class="field"><label>成交时间</label><input id="fill-at" type="datetime-local" value="'+p.date+'T10:00" required></div>'
+    +'<div class="field"><label>成交价格</label><input id="fill-price" type="number" min="0.001" step="any" required></div>'
+    +'<div class="field"><label>成交数量（须等于计划 '+p.qty+'）</label><input id="fill-qty" type="number" value="'+p.qty+'" min="100" step="100" required></div>'
+    +'<div class="field"><label>费用合计</label><input id="fill-fee" type="number" min="0" step="any" value="5" required></div>'
+    +'<div class="field full"><label>成交依据（可核实的数据来源）</label><textarea id="fill-evidence" required></textarea></div>'
+    +'<div class="field full"><label>成交理由</label><textarea id="fill-reason" required></textarea></div>'
+    +'</div><div class="modal-actions"><button type="button" class="btn2" data-modal-close>取消</button><button type="submit" class="btn2 primary">入账 AI 模拟账本</button></div></form>');
+}
+
+const Forms = {
+  val: function(id){ const el=document.getElementById(id); return el?el.value:""; },
+  num: function(id){ return Number(Forms.val(id)); },
+  submit: function(formId){
+    if(formId==="plan-new-form"){
+      Plans.create({code:Forms.val("plan-code"), side:Forms.val("plan-side"), qty:Forms.num("plan-qty"), date:Forms.val("plan-date"),
+        low:Forms.num("plan-low"), high:Forms.num("plan-high"), stop:Forms.num("plan-stop"),
+        reason:Forms.val("plan-reason"), trigger:Forms.val("plan-trigger"), cancel:Forms.val("plan-cancel")});
+      UI.closeModal(); UI.toast("计划已创建（未生成成交）"); render(); return;
+    }
+    if(formId==="plan-advance-form"){
+      Plans.advance(UI._planId, Forms.val("stage-evidence"));
+      UI.closeModal(); UI.toast("已推进到下一阶段"); render(); return;
+    }
+    if(formId==="plan-review-form"){
+      Plans.review(UI._planId, Forms.val("stage-evidence"));
+      UI.closeModal(); UI.toast("复盘已归档"); render(); return;
+    }
+    if(formId==="plan-fill-form"){
+      const tid = Plans.fill(UI._planId, {at:Forms.val("fill-at"), price:Forms.num("fill-price"), qty:Forms.num("fill-qty"),
+        fee:Forms.num("fill-fee"), evidence:Forms.val("fill-evidence"), reason:Forms.val("fill-reason")});
+      UI.closeModal(); UI.toast("成交 "+tid+" 已入账 AI 模拟账本"); render(); return;
+    }
+    if(formId==="calc-val-form"){
+      Calc.valuation(state.detail, {ref:Forms.num("val-ref"), eps:Forms.num("val-eps"), pe1:Forms.num("val-pe1"), pe2:Forms.num("val-pe2"), pe3:Forms.num("val-pe3"), src:Forms.val("val-src")});
+      UI.toast("三情景目标价已计算（仅假设计算）"); render(); return;
+    }
+    if(formId==="calc-risk-form"){
+      Calc.risk(state.detail, {equity:Forms.num("rk-equity"), budget:Forms.num("rk-budget"), entry:Forms.num("rk-entry"),
+        stop:Forms.num("rk-stop"), cash:Forms.num("rk-cash"), fee:Forms.num("rk-fee")});
+      UI.toast("风险预算仓位已计算"); render(); return;
+    }
+    if(formId==="score-form"){
+      Scores.save(state.detail, [0,1,2,3,4,5].map(i=>Forms.val("sc-"+i)), Forms.val("sc-evidence"), Forms.val("sc-at"));
+      UI.toast("评分已保存（"+Scores.of(state.detail)+"/100）"); render(); return;
+    }
+    if(formId==="notes-form"){
+      Notes.save(state.detail, Forms.val("note-text"));
+      UI.toast("研究笔记已保存"); render(); return;
+    }
+  }
+};
+
+R.planCard = function(p){
+  const h = findHolding(p.code)||{name:p.code};
+  const cells = STAGES.map((s,i)=>{
+    let cls = "stage-cell";
+    if(!p.cancelled){ if(i<p.stage) cls+=" done"; else if(i===p.stage) cls+=" current"; }
+    return '<div class="'+cls+'">'+s+'</div>';
+  }).join("");
+  const sideBadge = p.side==="buy"?badge("模拟买入","red"):badge("模拟卖出","green");
+  const btns = [];
+  if(!p.cancelled){
+    if(p.stage<2) btns.push('<button class="btn2 primary" data-plan-act="advance" data-id="'+p.id+'">'+(p.stage===0?"核验触发":"记录委托")+'</button>');
+    if(p.stage===2) btns.push('<button class="btn2 primary" data-plan-act="fill" data-id="'+p.id+'">录入成交</button>');
+    if(p.stage===3) btns.push('<button class="btn2 primary" data-plan-act="review" data-id="'+p.id+'">复盘归档</button>');
+    if(p.stage<3) btns.push('<button class="btn2 danger" data-plan-act="cancel" data-id="'+p.id+'">取消计划</button>');
+  }
+  const ev = p.evidence.slice(-3).map(x=>'<div>· '+escHtml(x.text)+' <span class="dim">'+escHtml(String(x.at).replace("T"," ").slice(0,16))+'</span></div>').join("");
+  return '<div class="card plan-card'+(p.cancelled?" cancelled":"")+'">'
+    +'<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><b style="font-size:14px">'+h.name+'</b> <span class="dim mono">'+p.code+'</span> '+sideBadge+' '+badge(p.cancelled?"已取消":STAGES[p.stage], p.cancelled?"gray":(p.stage>=3?"green":"blue"))+'</div><div class="num" style="font-size:16px">'+p.qty.toLocaleString()+' 股</div></div>'
+    +'<div class="plan-meta"><span>计划区间 '+p.low.toFixed(2)+' ~ '+p.high.toFixed(2)+'</span><span>失效观察价 '+p.stop.toFixed(2)+'</span><span>有效 '+escHtml(p.date)+'</span><span>来源：'+escHtml(p.source)+'</span></div>'
+    +'<div class="plan-rule">触发：'+escHtml(p.trigger)+'<br>取消：'+escHtml(p.cancel)+'<br>理由：'+escHtml(p.reason)+'</div>'
+    +'<div class="stage-strip">'+cells+'</div>'
+    +(ev?'<div class="plan-ev">'+ev+'</div>':'')
+    +'<div class="plan-footer"><span class="dim" style="font-size:11px">'+(p.fill?("成交 "+p.fillId+" · "+p.fill.qty+" 股 @"+p.fill.price+" · 费用 "+fmt(p.fill.fee)):"尚无成交入账")+'</span><div style="display:flex;gap:8px;flex-wrap:wrap">'+btns.join("")+'</div></div></div>';
+};
+
+R.secCalcVal = function(h){
+  const c = Calc.val[h.code];
+  let result = "";
+  if(c){
+    const names = ["悲观","基准","乐观"];
+    result = '<div class="calc-result"><b>三情景目标价</b>（假设 EPS '+c.eps+' 元 × PE，参考价 '+c.ref+'）<br>'
+      +c.pes.map((pe,i)=>names[i]+"："+c.targets[i].toFixed(2)+" 元（相对参考价 "+((c.targets[i]/c.ref-1)*100).toFixed(1)+"%）").join("<br>")
+      +'<br><span class="dim">假设来源：'+escHtml(c.src||"未填写")+' · 计算于 '+c.at+' · 仅假设计算，不生成订单</span></div>';
+  }
+  return '<form id="calc-val-form"><div class="form-grid">'
+    +'<div class="field"><label>参考价（元）</label><input id="val-ref" type="number" step="any" value="'+(c?c.ref:h.price)+'"></div>'
+    +'<div class="field"><label>假设 EPS（元）</label><input id="val-eps" type="number" step="any" value="'+(c?c.eps:"")+'"></div>'
+    +'<div class="field"><label>悲观 PE</label><input id="val-pe1" type="number" step="any" value="'+(c?c.pes[0]:"")+'"></div>'
+    +'<div class="field"><label>基准 PE</label><input id="val-pe2" type="number" step="any" value="'+(c?c.pes[1]:"")+'"></div>'
+    +'<div class="field"><label>乐观 PE</label><input id="val-pe3" type="number" step="any" value="'+(c?c.pes[2]:"")+'"></div>'
+    +'<div class="field"><label>假设来源</label><input id="val-src" placeholder="如：一致预期 / 自建模型" value="'+(c?escHtml(c.src):"")+'"></div>'
+    +'</div><div class="modal-actions" style="justify-content:flex-start"><button type="submit" class="btn2 primary">计算三情景</button><span class="dim" style="font-size:11px;align-self:center">仅假设计算，不生成订单</span></div></form>'+result;
+};
+
+R.secCalcRisk = function(h){
+  const c = Calc.risk[h.code];
+  const simEq = Math.round((DATA.sim.cash + Object.keys(DATA.sim.pos||{}).reduce((v,k)=>{ const hh=findHolding(k); return v+(DATA.sim.pos[k]*(hh?hh.price:0)); },0))*100)/100;
+  let result = "";
+  if(c){
+    result = '<div class="calc-result"><b>建议股数：'+c.qty.toLocaleString()+' 股</b><br>'
+      +'风险预算：¥'+c.budgetAmt.toLocaleString()+'（净值 '+c.equity.toLocaleString()+' × '+c.budget+'%），每股风险 ¥'+(c.entry-c.stop).toFixed(2)+' → 风险上限 '+c.riskAmt.toLocaleString()+' 元<br>'
+      +'现金约束：可用 ¥'+c.cash.toLocaleString()+'，整手后可买 '+Math.floor(Math.max(0,c.cash-c.fee)/c.entry/100)*100+' 股 → 取小<br>'
+      +'预计动用资金：¥'+c.amount.toLocaleString()+'（含费用 '+c.fee+'） · 计算于 '+c.at+' · 仅为仓位测算，不生成订单</div>';
+  }
+  return '<form id="calc-risk-form"><div class="form-grid">'
+    +'<div class="field"><label>账户净值（元）</label><input id="rk-equity" type="number" step="any" value="'+(c?c.equity:simEq)+'"></div>'
+    +'<div class="field"><label>单笔风险 %</label><input id="rk-budget" type="number" step="any" value="'+(c?c.budget:0.75)+'"></div>'
+    +'<div class="field"><label>入场价（元）</label><input id="rk-entry" type="number" step="any" value="'+(c?c.entry:h.price)+'"></div>'
+    +'<div class="field"><label>失效价（元）</label><input id="rk-stop" type="number" step="any" value="'+(c?c.stop:Math.round(h.price*0.95*100)/100)+'"></div>'
+    +'<div class="field"><label>可用现金（元）</label><input id="rk-cash" type="number" step="any" value="'+(c?c.cash:DATA.sim.cash)+'"></div>'
+    +'<div class="field"><label>费用合计（元）</label><input id="rk-fee" type="number" step="any" value="'+(c?c.fee:5)+'"></div>'
+    +'</div><div class="modal-actions" style="justify-content:flex-start"><button type="submit" class="btn2 primary">计算建议股数</button><span class="dim" style="font-size:11px;align-self:center">公式：min(风险预算 ÷ (入场 − 失效), 现金允许)，向下取整 100 股</span></div></form>'+result;
+};
+
+R.secScore = function(h){
+  const r = Scores.data[h.code];
+  const total = Scores.of(h.code);
+  const rows = DATA.dims.map((d,i)=>'<div class="dimbar-row"><div class="name">'+d.name+'</div><div class="wt num">/'+d.wt+'</div><div class="bar"><input id="sc-'+i+'" type="number" min="0" max="'+d.wt+'" step="1" value="'+(r&&r.scores?r.scores[i]:"")+'" style="width:100%;background:#0d1522;border:1px solid #1d2a42;color:#d7e0f0;border-radius:6px;padding:6px 8px;font-family:inherit"></div></div>').join("");
+  return (total!==null
+    ? '<div class="note" style="margin-bottom:12px">已评分 <b class="num" style="color:#f0b354">'+total+'/100</b> · 证据 '+escHtml(r.at)+'：'+escHtml(r.evidence)+'</div>'
+    : '<div class="note" style="margin-bottom:12px">当前 待验证：六维全部填分并附证据来源与日期后才生成总分；缺项不生成总分，不自动补分。</div>')
+    +'<form id="score-form">'+rows
+    +'<div class="form-grid" style="margin-top:14px">'
+    +'<div class="field"><label>证据来源（必填）</label><input id="sc-evidence" value="'+(r?escHtml(r.evidence):"")+'" placeholder="如：iFinD 一致预期 + 公司三季报"></div>'
+    +'<div class="field"><label>证据日期（必填）</label><input id="sc-at" type="date" value="'+(r?r.at:"")+'"></div>'
+    +'</div><div class="modal-actions" style="justify-content:flex-start"><button type="submit" class="btn2 primary">保存评分</button></div></form>';
+};
+
+R.secNotes = function(h){
+  const t = Notes.data[h.code]||"";
+  return '<form id="notes-form"><div class="field"><label>研究笔记（仅保存在本机浏览器）</label><textarea id="note-text" style="min-height:150px">'+escHtml(t)+'</textarea></div>'
+    +'<div class="modal-actions" style="justify-content:flex-start;margin-top:12px"><button type="submit" class="btn2 primary">保存笔记</button><span class="dim" style="font-size:11px;align-self:center">'+(t?("已存 "+t.length+" 字"):"暂无笔记")+'</span></div></form>';
+};
+
+function bindGlobalEvents(){
+  if(typeof document.addEventListener!=="function") return;
+  document.addEventListener("keydown", function(e){
+    let m = null;
+    try{ m = document.querySelector ? document.querySelector(".modal") : null; }catch(err){ m=null; }
+    if(!m) return;
+    if(e.key==="Escape"){ UI.closeModal(); return; }
+    if(e.key==="Tab"){
+      const f = [].slice.call(m.querySelectorAll('button,input,select,textarea,[tabindex]')).filter(n=>!n.disabled);
+      if(f.length){
+        if(e.shiftKey && (document.activeElement===m || document.activeElement===f[0])){ e.preventDefault(); f[f.length-1].focus(); }
+        else if(!e.shiftKey && (document.activeElement===m || document.activeElement===f[f.length-1])){ e.preventDefault(); f[0].focus(); }
+      }
+    }
+  });
+  document.addEventListener("submit", function(e){
+    const id = e.target && e.target.id;
+    if(!id) return;
+    e.preventDefault();
+    try{ Forms.submit(id); }catch(err){ UI.toast((err&&err.message)?err.message:String(err)); }
+  });
+  document.addEventListener("click", function(e){
+    if(e.target.closest && e.target.closest("[data-modal-close]")){ UI.closeModal(); return; }
+    if(e.target.hasAttribute && e.target.hasAttribute("data-modal-mask")){ UI.closeModal(); return; }
+    const w = e.target.closest && e.target.closest("[data-watch]");
+    if(w){ Watch.toggle(w.dataset.watch); return; }
+    const pa = e.target.closest && e.target.closest("[data-plan-act]");
+    if(pa){
+      const act = pa.dataset.planAct, id = pa.dataset.id;
+      try{
+        if(act==="new") modalNewPlan();
+        else if(act==="advance") modalAdvance(id);
+        else if(act==="fill") modalFill(id);
+        else if(act==="review") modalReview(id);
+        else if(act==="cancel"){ Plans.cancel(id); UI.toast("计划已取消"); render(); }
+      }catch(err){ UI.toast((err&&err.message)?err.message:String(err)); }
+      return;
+    }
+    if(e.target.closest && e.target.closest("[data-export-json]")){ Backup.exportJson(); return; }
+    if(e.target.closest && e.target.closest("[data-export-csv-real]")){ Backup.exportCsvReal(); return; }
+    if(e.target.closest && e.target.closest("[data-export-csv-sim]")){ Backup.exportCsvSim(); return; }
+    if(e.target.closest && e.target.closest("[data-import-json]")){ const fi=document.getElementById("importFile"); if(fi && typeof fi.click==="function") fi.click(); return; }
+  });
+  document.addEventListener("change", function(e){
+    if(e.target && e.target.id==="importFile"){ Backup.importFile(e.target); }
+  });
+}
+
 const titles = {overview:"总览驾驶舱",radar:"选股雷达",research:"个股研究",strategy:"AI策略中心",trade:"交易计划",review:"复盘与回测",system:"系统状态"};
 function render(){
   document.getElementById("nav").innerHTML = R.nav();
@@ -1739,6 +2361,7 @@ document.getElementById("page").addEventListener("click", e=>{
   if(e.target.closest("[data-feed-refresh]")){ DataFeed.refresh(); return; }
   if(e.target.closest("[data-feed-retryall]")){ DataFeed.retryAll(); return; }
   if(e.target.closest("#backBtn")){ state.detail=null; render(); return; }
+  if(e.target.closest("[data-watch]")) return;
   const row = e.target.closest("tr.clickrow"); if(row && row.dataset.code){ state.detail=row.dataset.code; state.module="research"; render(); }
 });
 document.getElementById("page").addEventListener("change", e=>{
@@ -1748,6 +2371,7 @@ window.addEventListener("hashchange", route);
 route();
 try{ DataFeed.init(); }catch(e){}
 try{ Agent.init(); }catch(e){}
+try{ bindGlobalEvents(); }catch(e){}
 </script>
 </body>
 </html>
